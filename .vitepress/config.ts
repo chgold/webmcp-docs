@@ -55,6 +55,7 @@ export default defineConfig({
             { text: 'Site Groups', link: '/features/groups' },
             { text: 'Autonomous Agents', link: '/features/agents' },
             { text: 'Team Workspaces', link: '/features/workspaces' },
+            { text: 'File Manager', link: '/features/files' },
             { text: 'Artifacts', link: '/features/artifacts' },
             { text: 'Analytics', link: '/features/analytics' },
             { text: 'Billing & Payments', link: '/features/billing' },
