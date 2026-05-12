@@ -11,7 +11,7 @@ WebMCP Master offers four plans designed for different usage levels. All plans i
 
 | Feature | Free | Pro | Harness | Team |
 |---------|------|-----|---------|------|
-| **Price** | $0 | $12/mo | $39/mo | $79/mo |
+| **Price** | $0 | $9.99/mo | $29.99/mo | $79.99/mo |
 | **Credits/month** | 50 (one-time) | 1,000 | 5,000 | 10,000 |
 | **Sites in vault** | 3 | 10 | 25 | Unlimited |
 | **Sites per session** | 1 | 3 | 5 | 10 |
@@ -57,8 +57,8 @@ Upgrade to Team when you:
 
 1. Go to **Billing** in the sidebar.
 2. Under **Choose a Plan**, click **Upgrade** on the plan you want.
-3. If upgrading for the first time, you will be prompted to add a payment method.
-4. Confirm the upgrade. Billing is prorated — you only pay for the remaining days in the current billing cycle.
+3. A Paddle checkout overlay opens. Enter your payment details there.
+4. Billing is prorated — you only pay for the remaining days in the current billing cycle.
 5. New credits and features are available immediately.
 
 ## How to Downgrade

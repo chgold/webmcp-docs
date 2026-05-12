@@ -16,19 +16,6 @@ At the top of the Billing page, you see:
 - **Monthly Allocation** — how many credits your plan provides per billing cycle
 - **Next Renewal** — the date your subscription renews and credits reset
 
-## Adding a Payment Method
-
-WebMCP Master uses Stripe for payment processing.
-
-1. Go to **Billing** > **Payment Method**.
-2. Click **Add Card**.
-3. Enter your card details in the secure Stripe form.
-4. Click **Save Card**.
-
-Your card is stored securely by Stripe — WebMCP Master never sees or stores full card numbers. The card is used for subscription billing, credit purchases, and auto top-up.
-
-To remove a card, click the remove icon next to it. You must have a payment method to purchase credits or maintain a paid subscription.
-
 ## Buying Credits
 
 One-time credit packages supplement your monthly allocation:
@@ -38,12 +25,13 @@ One-time credit packages supplement your monthly allocation:
 
 | Package | Credits | Price | Value |
 |---------|---------|-------|-------|
-| Starter | 500 | $5.00 | $0.010 / credit |
-| Standard | 2,000 | $18.00 | $0.009 / credit |
-| Pro | 5,000 | $40.00 | $0.008 / credit |
-| Bulk | 15,000 | $105.00 | $0.007 / credit |
+| Starter | 250 | $5.00 | $0.020 / credit |
+| Standard | 600 | $10.00 | $0.017 / credit |
+| Pro | 1,300 | $20.00 | $0.015 / credit |
+| Bulk | 3,500 | $50.00 | $0.014 / credit |
 
-3. Confirm the purchase. Credits are added to your account instantly.
+3. Click **Buy**. A Paddle checkout overlay opens — enter your payment details there.
+4. Once payment completes, credits are added to your account instantly.
 
 Purchased credits **never expire**, unlike monthly allocation credits.
 
@@ -59,6 +47,8 @@ Avoid running out of credits with automatic purchasing:
    - **Monthly Limit** — maximum credits to auto-purchase per month (optional; leave empty for no limit)
 4. Click **Save Settings**.
 
+Auto top-up requires an active paid subscription. When triggered, Paddle charges your subscription's payment method via a one-time charge — no separate card setup needed.
+
 ::: tip
 A good starting configuration: threshold of 100 credits, purchase amount of 500 credits, monthly limit of 2,000 credits. Adjust based on your usage patterns shown in Analytics.
 :::
@@ -67,8 +57,9 @@ A good starting configuration: threshold of 100 credits, purchase amount of 500 
 
 1. Scroll to **Choose a Plan** on the Billing page.
 2. Click **Upgrade** on the desired tier.
-3. Review the prorated charge — you pay only for the remaining days in the current billing cycle.
-4. Confirm. New features and credits are available immediately.
+3. A Paddle checkout overlay opens — enter your payment details there.
+4. Billing is prorated — you pay only for the remaining days in the current billing cycle.
+5. New features and credits are available immediately.
 
 ## Downgrading Plans
 
@@ -102,7 +93,16 @@ The **Billing History** section shows all past transactions:
 | **Credits** | Number of credits involved |
 | **Status** | Completed or Refunded |
 
-Click **View Receipt** to see the Stripe receipt for a transaction.
+Click **View Receipt** to see the receipt for a transaction.
+
+## Credit Breakdown
+
+Credits come from two sources:
+
+- **Monthly allocation** — granted at the start of each billing cycle, expire at renewal
+- **Purchased credits** — bought as one-time packages, never expire
+
+The Billing page shows each source with its balance and expiry date. Monthly credits are consumed first.
 
 ## Refunds
 

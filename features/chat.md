@@ -71,6 +71,32 @@ Every tool call goes through three security checks:
 2. **Domain validation** — the tool endpoint must match the site's domain
 3. **Result sanitization** — tool results are scanned for prompt injection patterns before being sent back to the AI
 
+## File Attachments
+
+You can attach files to any message by dragging and dropping them onto the chat input, or by clicking the attachment icon.
+
+**Supported formats:** text files, source code, images, PDFs, Excel spreadsheets, audio files, and archives (zip, tar).
+
+File size and count limits depend on your plan. Files are stored in your account and accessible from the **Files** page in the sidebar.
+
+### AI File Tools
+
+The AI has five built-in tools for working with files in your account:
+
+| Tool | Description |
+|------|-------------|
+| `file_list` | List files and folders in your account |
+| `file_read` | Read a file's contents |
+| `file_read_url` | Read a file from a public URL |
+| `file_write` | Create a new file |
+| `file_update` | Overwrite an existing file |
+
+**`file_read`** handles different formats automatically: text files are returned as-is, Excel files (.xlsx) are converted to CSV tables, and PDFs are returned as extracted text.
+
+**`file_write`** can create text files directly, generate Excel files from JSON data, or produce PDFs from plain text.
+
+**`file_update`** overwrites a text file with new content and creates an automatic backup of the previous version.
+
 ## Conversation History
 
 ### Sidebar

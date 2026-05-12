@@ -7,6 +7,29 @@ description: WebMCP Master release history — new features, improvements, bug f
 
 All notable changes to WebMCP Master are documented here. The format is based on [Keep a Changelog](https://keepachangelog.com/). Dates are in YYYY-MM-DD format.
 
+## [3.3.0] - 2026-05-12
+
+### Added
+- **Paddle Billing** — migrated from LemonSqueezy + Stripe to Paddle as sole payment processor. Paddle handles subscriptions, credit purchases, and payment methods via overlay checkout.
+- **File management system** — upload, organize, download, and share files. Supports folders, workspace sharing, bulk operations, and drag-and-drop.
+- **Agent file tools** — 5 built-in tools for AI agents: file_list, file_read, file_read_url, file_write, file_update. Supports Excel (.xlsx) and PDF extraction/creation.
+- **Documentation site** — VitePress docs at docs.webmcp-master.ai with 38 pages covering all platform features.
+- **Legal pages** — Terms of Service v3.0 (24 sections), Privacy Policy v2.0 (20 sections), Refund Policy (6 sections).
+
+### Changed
+- Chat UI redesigned with improved layout and RTL support.
+- Pricing page works without authentication.
+- Auto top-up now requires an active subscription (Paddle manages payment methods).
+
+### Removed
+- Stripe integration (replaced by Paddle).
+- LemonSqueezy integration (replaced by Paddle).
+- Manual payment method management (Paddle handles via checkout overlay).
+
+### Fixed
+- Production deployment: trust proxy for nginx, configurable OAuth callback URL, explicit dotenv dependency.
+- Build: separate tsconfig.build.json for production (relaxed strict mode), test files excluded from build.
+
 ## [3.2.0] - 2026-05-01
 
 ### Added
