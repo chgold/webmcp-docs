@@ -15,8 +15,8 @@ hero:
       text: Features
       link: /features/chat
     - theme: alt
-      text: API Reference
-      link: /reference/api
+      text: Site Owners
+      link: /site-owners/what-is-webmcp
 
 features:
   - title: Connect Sites
