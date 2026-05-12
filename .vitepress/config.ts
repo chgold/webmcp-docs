@@ -30,7 +30,7 @@ export default defineConfig({
         ],
       },
       { text: 'Tutorials', link: '/tutorials/customer-support-bot' },
-      { text: 'Reference', link: '/reference/api' },
+      { text: 'Reference', link: '/reference/tier-features' },
     ],
 
     sidebar: {
@@ -108,7 +108,6 @@ export default defineConfig({
         {
           text: 'Reference',
           items: [
-            { text: 'API Reference', link: '/reference/api' },
             { text: 'Error Codes', link: '/reference/error-codes' },
             { text: 'Tier Feature Matrix', link: '/reference/tier-features' },
             { text: 'Rate Limits', link: '/reference/rate-limits' },
