@@ -1,6 +1,6 @@
 ---
 title: Troubleshooting
-description: Solutions for common WebMCP Master issues — connection problems, credit errors, agent failures, and more.
+description: Solutions for common Goldnat issues — connection problems, credit errors, agent failures, and more.
 ---
 
 # Troubleshooting
@@ -17,8 +17,8 @@ This page covers the most common issues users encounter and how to resolve them.
 
 1. **Wrong URL** — verify the URL is correct and includes `https://`.
 2. **No manifest** — the site may not have a manifest at the standard paths (`/.well-known/webmcp.json`, `/webmcp.json`, `/api/webmcp/manifest`). Contact the site administrator.
-3. **SSL error** — the site's SSL certificate may be invalid or expired. WebMCP Master does not connect to HTTP-only sites.
-4. **Firewall blocking** — the site may block requests from WebMCP Master's servers. Contact the site administrator to allow incoming requests.
+3. **SSL error** — the site's SSL certificate may be invalid or expired. Goldnat does not connect to HTTP-only sites.
+4. **Firewall blocking** — the site may block requests from Goldnat's servers. Contact the site administrator to allow incoming requests.
 5. **Site down** — try again later if the site is temporarily unreachable.
 
 ### Token shows "Expired" status
@@ -46,7 +46,7 @@ This page covers the most common issues users encounter and how to resolve them.
 
 1. Ensure third-party cookies are not blocked in your browser.
 2. Try using a different browser or incognito mode.
-3. Clear your browser cookies for webmcp-master.ai.
+3. Clear your browser cookies for goldnat.ai.
 4. The site's OAuth configuration may be incorrect — contact the site administrator.
 
 ## Credit Issues
@@ -83,7 +83,7 @@ This page covers the most common issues users encounter and how to resolve them.
 **Solutions:**
 1. Wait a few minutes — runs are queued and processed sequentially.
 2. If the run has been pending for more than 10 minutes, cancel it and try again.
-3. This may indicate a platform-side issue. Check [status.webmcp-master.ai](https://status.webmcp-master.ai) for outage reports.
+3. This may indicate a platform-side issue. Check [status.goldnat.ai](https://status.goldnat.ai) for outage reports.
 
 ### Agent run shows "Failed" status
 
@@ -158,7 +158,7 @@ Your payment failed. Update your payment method within 7 days to avoid being dow
 ### Page shows a loading spinner indefinitely
 
 1. Refresh the page.
-2. Clear browser cache and cookies for webmcp-master.ai.
+2. Clear browser cache and cookies for goldnat.ai.
 3. Try a different browser.
 4. Check your internet connection.
 
@@ -170,7 +170,7 @@ Your payment failed. Update your payment method within 7 days to avoid being dow
 
 ### Need more help?
 
-Contact **support@webmcp-master.ai** with:
+Contact **support@goldnat.ai** with:
 - Your account email
 - The action you were trying to perform
 - Any error messages you received

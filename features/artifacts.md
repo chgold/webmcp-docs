@@ -1,6 +1,6 @@
 ---
 title: Artifacts
-description: AI-generated files in WebMCP Master — HTML, code, CSV, images, and how to view, download, and post them to sites.
+description: AI-generated files in Goldnat — HTML, code, CSV, images, and how to view, download, and post them to sites.
 ---
 
 # Artifacts

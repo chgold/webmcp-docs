@@ -1,6 +1,6 @@
 ---
 title: Error Codes
-description: Complete reference of WebMCP Master API error codes with descriptions, HTTP status codes, and resolution steps.
+description: Complete reference of Goldnat API error codes with descriptions, HTTP status codes, and resolution steps.
 ---
 
 # Error Codes
@@ -68,6 +68,7 @@ All API errors include a `code` field that identifies the specific error type. U
 | `STREAM_ABORTED` | 499 | The client disconnected during streaming | No action needed; the partial response is not saved |
 | `MODEL_ERROR` | 502 | The AI provider returned an error | Try a different model or wait and retry |
 | `TOOL_EXECUTION_ERROR` | 502 | A tool call to an external site failed | Check the site's status; the tool endpoint may be down |
+| `SITE_UNAVAILABLE` | 503 | A connected site is not reachable | Verify the site is online and accessible |
 
 ## Vault Errors
 

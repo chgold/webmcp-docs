@@ -5,7 +5,7 @@ description: Platforms compatible with the WebMCP protocol — WordPress, XenFor
 
 # Supported Platforms
 
-WebMCP Master works with any website that implements the WebMCP protocol. Several popular platforms have ready-made integrations, while custom sites can implement the protocol directly.
+Goldnat works with any website that implements the WebMCP protocol. Several popular platforms have ready-made integrations, while custom sites can implement the protocol directly.
 
 ## WordPress
 

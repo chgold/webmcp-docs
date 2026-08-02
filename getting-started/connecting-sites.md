@@ -1,6 +1,6 @@
 ---
 title: Connecting Sites
-description: How to connect websites to WebMCP Master using the Vault — token types, OAuth, manifest detection, and troubleshooting.
+description: How to connect websites to Goldnat using the Vault — token types, OAuth, manifest detection, and troubleshooting.
 ---
 
 # Connecting Sites
@@ -9,7 +9,7 @@ Every interaction between AI and your website starts with a connection stored in
 
 ## What is the WebMCP Protocol
 
-The Web Model Context Protocol (WebMCP) is a standard that lets websites expose tools to AI models. A site publishes a **manifest** — a JSON document that describes the site's name, available tools, and authentication method. When you connect a site in WebMCP Master, the platform reads this manifest and makes the tools available in your chat sessions and agents.
+The Web Model Context Protocol (WebMCP) is a standard that lets websites expose tools to AI models. A site publishes a **manifest** — a JSON document that describes the site's name, available tools, and authentication method. When you connect a site in Goldnat, the platform reads this manifest and makes the tools available in your chat sessions and agents.
 
 Unlike desktop-focused MCP implementations, WebMCP is designed for web-based platforms — forums, CMS systems, e-commerce sites, and custom applications.
 
@@ -19,15 +19,15 @@ Unlike desktop-focused MCP implementations, WebMCP is designed for web-based pla
 
 1. Navigate to **Sites** in the sidebar.
 2. Click **Add Site**.
-3. Enter the site URL (e.g., `https://community.example.com`).
-4. Paste the API token you received from the site administrator.
-5. Click **Add**.
+3. Paste the connection details you received from the site — either a plain API token, or the full connection prompt the site generated for you (which may include the token, a refresh token, and the site URL all in one block).
+4. Click **Add**.
 
-The platform will:
-1. Attempt to fetch the site manifest from `/.well-known/webmcp.json` (and other standard paths).
-2. Parse the manifest to discover available tools.
-3. Encrypt your token with AES-256-GCM and store it in the vault.
-4. Show a confirmation with the list of discovered tools.
+The platform parses whatever you paste and extracts all the relevant fields automatically. If the site gave you a full prompt, paste the entire thing — there is no need to manually pick out individual values.
+
+The platform will then:
+1. Fetch the site manifest to discover available tools.
+2. Encrypt your credentials and store them in the vault.
+3. Show a confirmation with the list of discovered tools.
 
 ### OAuth Connection (WebMCP Sites)
 
@@ -35,7 +35,7 @@ For sites that support the WebMCP OAuth flow:
 
 1. Browse the **Directory** or enter the site URL.
 2. Click **Connect**. You will be redirected to the site's login page.
-3. Authorize WebMCP Master to access your account.
+3. Authorize Goldnat to access your account.
 4. The platform automatically receives and stores the OAuth token.
 
 OAuth tokens are refreshed automatically when they expire.
@@ -101,6 +101,10 @@ Another token for this site is already in your vault. You can choose to replace 
 - Check that the tools are not on the session's deny list.
 - Go to **Sites** and verify the token status shows **Active**.
 - If the token has expired, update it with a fresh value.
+
+### Tools not loading after connecting a site
+
+If you connected a site and no tools appear, the site may use a non-standard manifest location. Remove the site and reconnect using the full connection prompt the site provides — paste the entire prompt rather than just the token. The platform will locate the manifest correctly.
 
 ### OAuth redirect fails
 

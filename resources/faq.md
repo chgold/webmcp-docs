@@ -1,6 +1,6 @@
 ---
 title: FAQ
-description: Frequently asked questions about WebMCP Master — accounts, billing, credits, chat, agents, security, and integrations.
+description: Frequently asked questions about Goldnat — accounts, billing, credits, chat, agents, security, and integrations.
 ---
 
 # Frequently Asked Questions
@@ -9,7 +9,7 @@ description: Frequently asked questions about WebMCP Master — accounts, billin
 
 ### How do I create an account?
 
-Click **Sign in with Google** on [webmcp-master.ai](https://webmcp-master.ai). A new account is created automatically on your first sign-in. No separate registration form is needed.
+Click **Sign in with Google** on [goldnat.ai](https://goldnat.ai). A new account is created automatically on your first sign-in. No separate registration form is needed.
 
 ### Can I sign in without a Google account?
 
@@ -21,7 +21,7 @@ Your email is tied to your Google account. To use a different email, sign in wit
 
 ### How do I delete my account?
 
-Contact **support@webmcp-master.ai** with your account email. Your account enters a 30-day grace period before permanent deletion. You can reactivate during this period.
+Contact **support@goldnat.ai** with your account email. Your account enters a 30-day grace period before permanent deletion. You can reactivate during this period.
 
 ## Billing
 
@@ -35,7 +35,7 @@ New accounts receive 50 welcome credits at no cost. This lets you try the platfo
 
 ### Can I get a refund?
 
-Individual credit purchases can be refunded from the Billing page (the credits are deducted from your balance). For subscription refunds, contact **support@webmcp-master.ai** within 7 days of the charge.
+Individual credit purchases can be refunded from the Billing page (the credits are deducted from your balance). For subscription refunds, contact **support@goldnat.ai** within 7 days of the charge.
 
 ### What happens if my payment fails?
 
@@ -113,7 +113,7 @@ Yes, different agents can run simultaneously. However, a single agent can only h
 
 All tokens (vault credentials, BYOK keys) are encrypted with AES-256-GCM before being stored in the database. The encryption key is stored in the server environment, not in the database.
 
-### Can WebMCP Master staff see my tokens?
+### Can Goldnat staff see my tokens?
 
 No. Tokens are encrypted at rest. Decryption happens only at the moment of a tool call and the decrypted value is never cached or logged.
 
@@ -149,7 +149,7 @@ Your BYOK key applies to the matching provider's models. If you use a model from
 
 WordPress, XenForo, Drupal, and Shopify have ready-made plugins/addons. Any site can integrate by implementing the WebMCP manifest and tool endpoints. See [Supported Platforms](/reference/platforms).
 
-### Can I use WebMCP Master with my custom application?
+### Can I use Goldnat with my custom application?
 
 Yes. Implement the WebMCP protocol (manifest + tool endpoints + authentication) on your application. See [Adding WebMCP to Your Site](/site-owners/adding-webmcp).
 
@@ -159,14 +159,14 @@ For supported platforms (WordPress, XenForo), install the plugin/addon — no co
 
 ## Privacy
 
-### What data does WebMCP Master collect?
+### What data does Goldnat collect?
 
 Account information (email, name from Google), conversation history, agent configurations, usage analytics, and encrypted credentials. We do not sell or share your data.
 
 ### Can I export my data?
 
-Contact **support@webmcp-master.ai** to request a data export. We will provide your conversation history, agent configurations, and account data in a machine-readable format.
+Contact **support@goldnat.ai** to request a data export. We will provide your conversation history, agent configurations, and account data in a machine-readable format.
 
-### Is WebMCP Master GDPR compliant?
+### Is Goldnat GDPR compliant?
 
 We process data in accordance with GDPR requirements. You can request data access, correction, or deletion by contacting support.

@@ -1,10 +1,10 @@
 ---
 layout: home
-title: WebMCP Master Documentation
-description: Documentation for WebMCP Master — the AI agents platform that connects websites to large language models via the WebMCP protocol.
+title: Goldnat Documentation
+description: Documentation for Goldnat — the AI agents platform that connects websites to large language models via the WebMCP protocol.
 
 hero:
-  name: WebMCP Master
+  name: Goldnat
   text: Documentation
   tagline: Connect your websites to AI. Chat, automate, and build intelligent workflows with the WebMCP protocol.
   actions:

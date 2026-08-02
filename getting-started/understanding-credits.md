@@ -1,11 +1,11 @@
 ---
 title: Understanding Credits
-description: How the WebMCP Master credit system works — costs per model, monthly allocations, BYOK, and managing your balance.
+description: How the Goldnat credit system works — costs per model, monthly allocations, BYOK, and managing your balance.
 ---
 
 # Understanding Credits
 
-Credits are the currency of WebMCP Master. Every AI interaction — chat messages, agent rounds, and artifact generation — consumes credits. This page explains how credits work, what they cost, and how to manage them.
+Credits are the currency of Goldnat. Every AI interaction — chat messages, agent rounds, and artifact generation — consumes credits. This page explains how credits work, what they cost, and how to manage them.
 
 ## How Credits Are Consumed
 

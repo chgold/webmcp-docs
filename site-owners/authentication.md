@@ -5,7 +5,7 @@ description: Implement authentication for your WebMCP site — OAuth 2.0 with PK
 
 # Authentication
 
-Authentication ensures that tool calls from WebMCP Master are authorized to access your site's data. WebMCP supports two authentication methods: Bearer tokens and OAuth 2.0 with PKCE.
+Authentication ensures that tool calls from Goldnat are authorized to access your site's data. WebMCP supports two authentication methods: Bearer tokens and OAuth 2.0 with PKCE.
 
 ## OAuth 2.0 with PKCE (Recommended)
 
@@ -13,11 +13,11 @@ OAuth is the recommended authentication method for production WebMCP sites. It p
 
 ### Flow Overview
 
-1. User clicks **Connect** in the WebMCP Master Directory.
-2. WebMCP Master redirects the user to your site's authorization URL with a PKCE challenge.
+1. User clicks **Connect** in the Goldnat Directory.
+2. Goldnat redirects the user to your site's authorization URL with a PKCE challenge.
 3. The user logs in on your site and approves the requested scopes.
 4. Your site redirects back with an authorization code.
-5. WebMCP Master exchanges the code for an access token and refresh token.
+5. Goldnat exchanges the code for an access token and refresh token.
 6. Tokens are encrypted and stored in the user's vault.
 
 ### Setting Up the Authorization Endpoint
@@ -29,8 +29,8 @@ Your site needs an authorization endpoint that:
 | Parameter | Description |
 |-----------|-------------|
 | `response_type` | Always `code` |
-| `client_id` | The WebMCP Master client ID |
-| `redirect_uri` | The callback URL on WebMCP Master |
+| `client_id` | The Goldnat client ID |
+| `redirect_uri` | The callback URL on Goldnat |
 | `scope` | Requested scopes (e.g., `read write`) |
 | `state` | Anti-CSRF token |
 | `code_challenge` | PKCE challenge (SHA-256 hash) |
@@ -68,7 +68,7 @@ grant_type=authorization_code
 
 ### Token Refresh
 
-When the access token expires, WebMCP Master sends a refresh request:
+When the access token expires, Goldnat sends a refresh request:
 
 **Request:**
 ```
@@ -114,17 +114,17 @@ Define scopes in your manifest:
 }
 ```
 
-WebMCP Master requests only the scopes needed for the tools in the session. If a user selects only read-type tools, only the `read` scope is requested.
+Goldnat requests only the scopes needed for the tools in the session. If a user selects only read-type tools, only the `read` scope is requested.
 
 ## Bearer Token Authentication
 
-For simpler integrations, Bearer token authentication requires no OAuth flow. The user manually generates a token on your site and pastes it into the WebMCP Master vault.
+For simpler integrations, Bearer token authentication requires no OAuth flow. The user manually generates a token on your site and pastes it into the Goldnat vault.
 
 ### How It Works
 
 1. Your site provides a mechanism for users to generate API tokens (e.g., a settings page).
-2. The user copies the token and pastes it into WebMCP Master's vault.
-3. On every tool call, WebMCP Master sends the token in the `Authorization` header:
+2. The user copies the token and pastes it into Goldnat's vault.
+3. On every tool call, Goldnat sends the token in the `Authorization` header:
 
 ```
 POST /api/webmcp/tools/search_threads
@@ -166,7 +166,7 @@ def handle_tool_call(tool_name):
 
 ### HTTPS Only
 
-All authentication endpoints and tool endpoints must use HTTPS. WebMCP Master does not connect to HTTP endpoints.
+All authentication endpoints and tool endpoints must use HTTPS. Goldnat does not connect to HTTP endpoints.
 
 ### Rate Limiting
 
@@ -183,7 +183,7 @@ Implement rate limiting on your tool endpoints:
 
 ### Validating the Platform
 
-To verify that requests come from WebMCP Master and not an unauthorized source:
-- Check the `User-Agent` header for the WebMCP Master identifier
-- Optionally implement IP allowlisting for WebMCP Master's server IPs
+To verify that requests come from Goldnat and not an unauthorized source:
+- Check the `User-Agent` header for the Goldnat identifier
+- Optionally implement IP allowlisting for Goldnat's server IPs
 - Use webhook signatures for webhook-style integrations

@@ -105,7 +105,7 @@ In your forum's admin panel (the exact steps depend on your platform):
 ### Manual Test with curl
 
 ```bash
-curl -X POST "https://webmcp-master.ai/api/webhooks/agent/YOUR_AGENT_ID" \
+curl -X POST "https://goldnat.ai/api/webhooks/agent/YOUR_AGENT_ID" \
   -H "Content-Type: application/json" \
   -H "X-Webhook-Secret: YOUR_SECRET" \
   -d '{

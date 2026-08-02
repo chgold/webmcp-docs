@@ -1,19 +1,19 @@
 import { defineConfig } from 'vitepress'
 
 export default defineConfig({
-  title: 'WebMCP Master Docs',
-  description: 'Documentation for WebMCP Master — AI agents platform',
+  title: 'Goldnat Docs',
+  description: 'Documentation for Goldnat — AI agents platform',
   base: '/',
   cleanUrls: true,
 
   head: [
     ['meta', { name: 'theme-color', content: '#6366f1' }],
     ['meta', { property: 'og:type', content: 'website' }],
-    ['meta', { property: 'og:site_name', content: 'WebMCP Master Docs' }],
+    ['meta', { property: 'og:site_name', content: 'Goldnat Docs' }],
   ],
 
   themeConfig: {
-    siteTitle: 'WebMCP Master',
+    siteTitle: 'Goldnat',
     logo: undefined,
 
     nav: [
@@ -41,7 +41,6 @@ export default defineConfig({
             { text: 'Quickstart', link: '/getting-started/quickstart' },
             { text: 'Connecting Sites', link: '/getting-started/connecting-sites' },
             { text: 'Understanding Credits', link: '/getting-started/understanding-credits' },
-            { text: 'Choosing a Plan', link: '/getting-started/choosing-a-plan' },
           ],
         },
       ],
@@ -121,7 +120,6 @@ export default defineConfig({
           text: 'Resources',
           items: [
             { text: 'FAQ', link: '/resources/faq' },
-            { text: 'Changelog', link: '/resources/changelog' },
             { text: 'Troubleshooting', link: '/resources/troubleshooting' },
           ],
         },
@@ -129,12 +127,12 @@ export default defineConfig({
     },
 
     socialLinks: [
-      { icon: 'github', link: 'https://github.com/webmcp-master' },
+      { icon: 'github', link: 'https://github.com/goldnat' },
     ],
 
     footer: {
-      message: 'WebMCP Master',
-      copyright: 'webmcp-master.ai',
+      message: 'Goldnat',
+      copyright: 'goldnat.ai',
     },
 
     search: {

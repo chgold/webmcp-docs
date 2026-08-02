@@ -1,6 +1,6 @@
 ---
 title: File Manager
-description: Upload, organize, download, and share files on WebMCP Master. AI agents can read and create files on your behalf.
+description: Upload, organize, download, and share files on Goldnat. AI agents can read and create files on your behalf.
 ---
 
 # File Manager

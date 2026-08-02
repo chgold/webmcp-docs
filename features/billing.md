@@ -1,6 +1,6 @@
 ---
 title: Billing & Payments
-description: Manage your WebMCP Master subscription, payment methods, credit purchases, auto top-up, and transaction history.
+description: Manage your Goldnat subscription, payment methods, credit purchases, auto top-up, and transaction history.
 ---
 
 # Billing & Payments

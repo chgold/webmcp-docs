@@ -1,11 +1,11 @@
 ---
 title: Tier Feature Matrix
-description: Complete comparison of WebMCP Master subscription tiers — Free, Pro, Harness, Team, and Enterprise.
+description: Complete comparison of Goldnat subscription tiers — Free, Pro, Harness, Team, and Enterprise.
 ---
 
 # Tier Feature Matrix
 
-This page provides a comprehensive comparison of all features across WebMCP Master subscription tiers.
+This page provides a comprehensive comparison of all features across Goldnat subscription tiers.
 
 ## Plan Overview
 
@@ -121,4 +121,4 @@ For organizations needing:
 - Priority support
 - On-premise deployment
 
-Contact **support@webmcp-master.ai** for Enterprise pricing.
+Contact **support@goldnat.ai** for Enterprise pricing.

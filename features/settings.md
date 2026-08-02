@@ -1,6 +1,6 @@
 ---
 title: Settings
-description: Manage your WebMCP Master profile, language, BYOK API keys, personal prompts, and account deletion.
+description: Manage your Goldnat profile, language, BYOK API keys, personal prompts, and account deletion.
 ---
 
 # Settings
@@ -14,11 +14,11 @@ Your profile shows:
 - **Email** — the Google email used to sign in
 - **Plan** — your current subscription tier
 
-Profile information is pulled from Google OAuth and cannot be edited directly within WebMCP Master.
+Profile information is pulled from Google OAuth and cannot be edited directly within Goldnat.
 
 ## Language and Theme
 
-WebMCP Master supports English and Hebrew. Use the language switcher in the sidebar or on the Settings page to change the interface language.
+Goldnat supports English and Hebrew. Use the language switcher in the sidebar or on the Settings page to change the interface language.
 
 Theme follows your system preference (light or dark mode) automatically.
 
@@ -81,9 +81,9 @@ Click **Clear All Chat History** to delete all your conversations. This action:
 
 ## Deleting Your Account
 
-To permanently delete your WebMCP Master account:
+To permanently delete your Goldnat account:
 
-1. Contact **support@webmcp-master.ai** with your account email.
+1. Contact **support@goldnat.ai** with your account email.
 2. Your account enters a **30-day grace period** during which data is preserved but the account is disabled.
 3. After 30 days, all data is permanently deleted:
    - Profile and credentials

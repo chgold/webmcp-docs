@@ -5,7 +5,7 @@ description: Integrate the WebMCP protocol with your website — WordPress, XenF
 
 # Adding WebMCP to Your Site
 
-This guide covers how to add WebMCP support to your website so users can connect it to WebMCP Master and interact with it through AI.
+This guide covers how to add WebMCP support to your website so users can connect it to Goldnat and interact with it through AI.
 
 ## Overview
 
@@ -172,7 +172,7 @@ For OAuth (recommended for production):
 After setting up:
 
 1. Visit `https://yoursite.com/.well-known/webmcp.json` in a browser — verify the manifest loads correctly
-2. Add your site in WebMCP Master's vault — the platform should discover the manifest and list the tools
+2. Add your site in Goldnat's vault — the platform should discover the manifest and list the tools
 3. Start a chat with your site selected — ask the AI to use one of your tools
 4. Check your server logs — verify the tool call arrived with proper authentication
 

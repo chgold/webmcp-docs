@@ -1,11 +1,11 @@
 ---
 title: Rate Limits
-description: API rate limits, outgoing tool call limits, and how to handle 429 responses in WebMCP Master.
+description: API rate limits, outgoing tool call limits, and how to handle 429 responses in Goldnat.
 ---
 
 # Rate Limits
 
-WebMCP Master applies rate limits at multiple levels to ensure platform stability and fair usage. This page documents all rate limit tiers and how to handle them.
+Goldnat applies rate limits at multiple levels to ensure platform stability and fair usage. This page documents all rate limit tiers and how to handle them.
 
 ## API Rate Limits
 
@@ -98,7 +98,7 @@ X-RateLimit-Reset: 1715424000
 
 ### In the Browser
 
-The WebMCP Master frontend handles rate limits automatically — you will see a notification asking you to wait before retrying.
+The Goldnat frontend handles rate limits automatically — you will see a notification asking you to wait before retrying.
 
 ### In API Integrations
 

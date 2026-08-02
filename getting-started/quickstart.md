@@ -1,11 +1,11 @@
 ---
 title: Quickstart
-description: Get up and running with WebMCP Master in under 5 minutes — sign in, connect a site, and chat with AI.
+description: Get up and running with Goldnat in under 5 minutes — sign in, connect a site, and chat with AI.
 ---
 
 # Quickstart
 
-This guide walks you through your first interaction with WebMCP Master. By the end, you will have connected a website and had AI perform an action on it.
+This guide walks you through your first interaction with Goldnat. By the end, you will have connected a website and had AI perform an action on it.
 
 ## Prerequisites
 
@@ -14,7 +14,7 @@ This guide walks you through your first interaction with WebMCP Master. By the e
 
 ## Step 1: Sign In
 
-Navigate to [webmcp-master.ai](https://webmcp-master.ai) and click **Sign in with Google**. After authenticating, you will land on the Dashboard.
+Navigate to [goldnat.ai](https://goldnat.ai) and click **Sign in with Google**. After authenticating, you will land on the Dashboard.
 
 New accounts receive **50 welcome credits** to get started at no cost.
 

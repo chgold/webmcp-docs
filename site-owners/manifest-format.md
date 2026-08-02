@@ -5,7 +5,7 @@ description: Complete specification of the WebMCP manifest JSON schema — requi
 
 # Manifest Format
 
-The WebMCP manifest is a JSON document that describes your site's identity, available tools, and authentication method. It is served at a well-known URL and consumed by AI platforms like WebMCP Master.
+The WebMCP manifest is a JSON document that describes your site's identity, available tools, and authentication method. It is served at a well-known URL and consumed by AI platforms like Goldnat.
 
 ## Manifest Location
 
@@ -52,7 +52,7 @@ The manifest must be served over HTTPS with `Content-Type: application/json`.
 
 ### `name`
 
-The display name of your site. Shown in the WebMCP Master vault and Directory.
+The display name of your site. Shown in the Goldnat vault and Directory.
 
 ```json
 "name": "Community Forum"
@@ -175,7 +175,7 @@ A site-level description shown in the Directory:
 
 ### `verification`
 
-A token provided by WebMCP Master during the Directory registration process. Add it to verify ownership:
+A token provided by Goldnat during the Directory registration process. Add it to verify ownership:
 
 ```json
 "verification": "wmcp_verify_a1b2c3d4e5f6"
@@ -264,7 +264,7 @@ A token provided by WebMCP Master during the Directory registration process. Add
 
 ## Validation
 
-WebMCP Master validates your manifest when:
+Goldnat validates your manifest when:
 - A user adds your site to the vault
 - You register your site in the Directory
 - The manifest is refreshed (periodically or on demand)

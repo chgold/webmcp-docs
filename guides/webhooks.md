@@ -1,6 +1,6 @@
 ---
 title: Webhook Triggers
-description: Trigger WebMCP Master agents from external systems via webhooks — setup, authentication, payload format, and examples.
+description: Trigger Goldnat agents from external systems via webhooks — setup, authentication, payload format, and examples.
 ---
 
 # Webhook Triggers
@@ -21,11 +21,11 @@ Common use cases:
 
 1. Create a new agent and select **Webhook** as the trigger type.
 2. Save the agent.
-3. The platform generates:
-   - **Webhook URL** — the endpoint to POST to (e.g., `https://webmcp-master.ai/api/webhooks/agent/<agent-id>`)
+3. On the Agents page, click the **webhook icon** on the agent row. A read-only panel opens showing:
+   - **Webhook URL** — the endpoint to POST to (e.g., `https://goldnat.ai/api/webhooks/agent/<agent-id>`)
    - **Webhook Secret** — a shared secret for authenticating requests
-
-Copy both values. You will need them when configuring the external system.
+   - The schema fields you defined (if any)
+4. Use the copy buttons to copy each value. You will need them when configuring the external system.
 
 ::: warning
 Do not share your webhook URL or secret publicly. Anyone with the URL and secret can trigger your agent.
@@ -38,7 +38,7 @@ Do not share your webhook URL or secret publicly. Anyone with the URL and secret
 Include the secret in the `X-Webhook-Secret` header:
 
 ```bash
-curl -X POST https://webmcp-master.ai/api/webhooks/agent/<agent-id> \
+curl -X POST https://goldnat.ai/api/webhooks/agent/<agent-id> \
   -H "Content-Type: application/json" \
   -H "X-Webhook-Secret: your-webhook-secret-here" \
   -d '{"event": "new_post", "post_id": 12345}'
@@ -101,7 +101,7 @@ Only enable action override for trusted webhook sources. An untrusted source cou
 ### Using curl
 
 ```bash
-curl -X POST https://webmcp-master.ai/api/webhooks/agent/<agent-id> \
+curl -X POST https://goldnat.ai/api/webhooks/agent/<agent-id> \
   -H "Content-Type: application/json" \
   -H "X-Webhook-Secret: your-secret" \
   -d '{"event": "test", "message": "Hello from curl"}'
@@ -109,7 +109,7 @@ curl -X POST https://webmcp-master.ai/api/webhooks/agent/<agent-id> \
 
 ### Using a Webhook Testing Tool
 
-Services like webhook.site or RequestBin can help you debug payload formats before connecting to WebMCP Master.
+Services like webhook.site or RequestBin can help you debug payload formats before connecting to Goldnat.
 
 ### Checking the Run
 

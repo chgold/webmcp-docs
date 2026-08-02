@@ -5,7 +5,7 @@ description: Step-by-step tutorial to use multiple connected sites together in c
 
 # Multi-Site Workflows
 
-In this tutorial, you will learn how to use multiple connected sites together — querying one site, processing the data, and acting on another. This is one of the most powerful features of WebMCP Master.
+In this tutorial, you will learn how to use multiple connected sites together — querying one site, processing the data, and acting on another. This is one of the most powerful features of Goldnat.
 
 **Time:** 15 minutes
 **Requirements:** Pro plan or higher, two or more connected sites

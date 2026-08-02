@@ -47,7 +47,7 @@ A JSON document published by the site at a well-known URL (e.g., `/.well-known/w
 - Authentication method (OAuth endpoints or Bearer token)
 - Server endpoint (where tool calls are sent)
 
-### 2. The AI Platform (WebMCP Master)
+### 2. The AI Platform (Goldnat)
 
 The platform that reads manifests, presents tools to users, and orchestrates AI-tool interactions:
 - Fetches and caches manifests
@@ -81,7 +81,7 @@ User sends message → AI model decides to call a tool
 
 ### Discoverability
 
-By publishing a WebMCP manifest, your site becomes available in the WebMCP Master Directory. Users can find and connect to your site with one click.
+By publishing a WebMCP manifest, your site becomes available in the Goldnat Directory. Users can find and connect to your site with one click.
 
 ### AI-Powered User Experience
 

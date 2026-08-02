@@ -1,6 +1,6 @@
 ---
 title: Prompt Engineering
-description: Write effective prompts for WebMCP Master chat and agents — patterns, examples, and common mistakes.
+description: Write effective prompts for Goldnat chat and agents — patterns, examples, and common mistakes.
 ---
 
 # Prompt Engineering

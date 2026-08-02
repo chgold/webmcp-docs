@@ -1,11 +1,11 @@
 ---
 title: Cost Optimization
-description: Reduce your WebMCP Master spending — model selection, BYOK, monitoring, and credit-saving strategies.
+description: Reduce your Goldnat spending — model selection, BYOK, monitoring, and credit-saving strategies.
 ---
 
 # Cost Optimization
 
-WebMCP Master provides several levers to control costs. This guide explains strategies for getting the most value from your credits.
+Goldnat provides several levers to control costs. This guide explains strategies for getting the most value from your credits.
 
 ## Choose the Right Model for the Task
 

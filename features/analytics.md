@@ -1,11 +1,11 @@
 ---
 title: Analytics
-description: Monitor your WebMCP Master usage — API calls, credit consumption, token counts, and cost breakdowns by model.
+description: Monitor your Goldnat usage — API calls, credit consumption, token counts, and cost breakdowns by model.
 ---
 
 # Analytics
 
-The Analytics page gives you visibility into how you are using WebMCP Master. Track API calls, credit consumption, token usage, and costs over time, broken down by model.
+The Analytics page gives you visibility into how you are using Goldnat. Track API calls, credit consumption, token usage, and costs over time, broken down by model.
 
 ## Usage Dashboard Overview
 

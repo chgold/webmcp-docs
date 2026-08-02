@@ -5,7 +5,7 @@ description: List your WebMCP-enabled site in the public directory — registrat
 
 # Registering in the Directory
 
-The WebMCP Master Directory is a public catalog of WebMCP-enabled sites. Registering your site makes it discoverable by all WebMCP Master users, who can connect with one click.
+The Goldnat Directory is a public catalog of WebMCP-enabled sites. Registering your site makes it discoverable by all Goldnat users, who can connect with one click.
 
 ## Why Register
 
@@ -38,7 +38,7 @@ Before registering, ensure:
 
 ### Step 2: Submit the Registration Form
 
-1. Log in to WebMCP Master.
+1. Log in to Goldnat.
 2. Go to **Directory** > **Register Your Site**.
 3. Fill in the form:
 
@@ -100,7 +100,7 @@ After registration, you can update your listing:
 - **Description** — edit the public description shown in the Directory
 - **Manifest** — if you update your manifest (add tools, change URLs), the platform will pick up changes on the next fetch
 
-To remove your listing, contact **support@webmcp-master.ai**.
+To remove your listing, contact **support@goldnat.ai**.
 
 ## Benefits of Verification
 

@@ -1,6 +1,6 @@
 ---
 title: Site Vault
-description: Managing your site connections in the WebMCP Master vault — adding sites, token encryption, OAuth, and token lifecycle.
+description: Managing your site connections in the Goldnat vault — adding sites, token encryption, OAuth, and token lifecycle.
 ---
 
 # Site Vault

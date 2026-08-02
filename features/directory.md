@@ -47,7 +47,7 @@ For sites with OAuth support:
 1. Click **Connect** on the site card.
 2. You are redirected to the site's login page.
 3. After authenticating, copy the authorization code shown.
-4. Paste it into the dialog on WebMCP Master.
+4. Paste it into the dialog on Goldnat.
 5. The platform exchanges the code for an access token and stores it in your vault.
 
 ### Manual Connection

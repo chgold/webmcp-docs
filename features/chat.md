@@ -1,11 +1,11 @@
 ---
 title: Chat Interface
-description: How to use the WebMCP Master chat — sessions, streaming, tool calls, conversation history, and keyboard shortcuts.
+description: How to use the Goldnat chat — sessions, streaming, tool calls, conversation history, and keyboard shortcuts.
 ---
 
 # Chat Interface
 
-The Chat is the primary way to interact with AI models on WebMCP Master. You create a session, select a model and one or more connected sites, then converse with the AI. The AI can call tools on your sites, generate artifacts, and maintain context across a multi-turn conversation.
+The Chat is the primary way to interact with AI models on Goldnat. You create a session, select a model and one or more connected sites, then converse with the AI. The AI can call tools on your sites, generate artifacts, and maintain context across a multi-turn conversation.
 
 ## Creating a Session
 
@@ -34,7 +34,7 @@ Each message shows the model used and the number of credits consumed.
 
 ## Tool Calls
 
-When the AI needs information from a connected site or wants to perform an action, it invokes a **tool call**. This is the core power of WebMCP Master.
+When the AI needs information from a connected site or wants to perform an action, it invokes a **tool call**. This is the core power of Goldnat.
 
 ### What a Tool Call Looks Like
 

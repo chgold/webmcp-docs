@@ -5,7 +5,7 @@ description: Collaborate with your team — shared credentials, agents, roles, p
 
 # Team Workspaces
 
-Workspaces let teams collaborate on WebMCP Master. Members share site connections, run agents together, and manage permissions through roles and user groups. Workspaces are available on the **Team** plan.
+Workspaces let teams collaborate on Goldnat. Members share site connections, run agents together, and manage permissions through roles and user groups. Workspaces are available on the **Team** plan.
 
 ## Creating a Workspace
 
@@ -25,7 +25,7 @@ You become the workspace **owner** with full permissions.
 5. Select their role.
 6. Click **Invite**.
 
-The invited user receives access immediately if they have a WebMCP Master account. Otherwise, they will see the workspace after signing up.
+The invited user receives access immediately if they have a Goldnat account. Otherwise, they will see the workspace after signing up.
 
 ## Roles
 

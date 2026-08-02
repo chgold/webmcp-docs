@@ -71,8 +71,9 @@ Scheduled agents require the **Harness** plan or higher.
 Trigger the agent via an HTTP POST request from an external system:
 
 1. Select **Webhook** as the trigger type.
-2. Save the agent to receive the webhook URL and secret.
-3. Configure your external system to POST to the webhook URL.
+2. Save the agent.
+3. Click the webhook icon that appears on the agent row in the table to view the Webhook URL and Secret — without opening the edit dialog.
+4. Configure your external system to POST to the webhook URL.
 
 The webhook payload can include dynamic data that gets injected into the agent's context. See the [Webhook Triggers guide](/guides/webhooks) for payload format and authentication.
 
@@ -95,10 +96,10 @@ Each run produces a timeline of steps:
 | Step Type | Description |
 |-----------|-------------|
 | **Thinking** | The AI's reasoning before a tool call |
-| **Tool Call** | A tool invocation with parameters |
+| **Tool Call** | A tool invocation — shows the exact parameters sent to the site |
 | **Tool Result** | The response from the site |
 | **Output** | The AI's final text output |
-| **Error** | An error that occurred during the step |
+| **Error** | An error that occurred during the step, with the error message displayed |
 
 Navigate to **Agents > [Agent] > Runs** to see all runs. Click a run to see the full timeline.
 
@@ -119,6 +120,7 @@ Click **Cancel Run** on an active run to stop it. The agent finishes the current
 | **Done** | Completed successfully |
 | **Failed** | Encountered an error |
 | **Cancelled** | Stopped by the user |
+| **Billing Failed** | Insufficient credits to complete the run — add credits on the Billing page |
 
 ## Credit Usage
 

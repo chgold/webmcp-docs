@@ -1,15 +1,15 @@
 ---
 title: Bring Your Own Key (BYOK)
-description: Use your own AI provider API key with WebMCP Master — setup, supported providers, security, and cost implications.
+description: Use your own AI provider API key with Goldnat — setup, supported providers, security, and cost implications.
 ---
 
 # Bring Your Own Key (BYOK)
 
-BYOK lets you connect your own AI provider API key to WebMCP Master. When active, AI calls route directly to your provider account — no platform credits are consumed. You pay the provider at their standard rates.
+BYOK lets you connect your own AI provider API key to Goldnat. When active, AI calls route directly to your provider account — no platform credits are consumed. You pay the provider at their standard rates.
 
 ## What is BYOK
 
-By default, all AI interactions on WebMCP Master consume platform credits. Credits are priced with a small markup over raw provider costs to cover infrastructure and tool execution.
+By default, all AI interactions on Goldnat consume platform credits. Credits are priced with a small markup over raw provider costs to cover infrastructure and tool execution.
 
 With BYOK, you bypass the credit system entirely for the provider you configure. The platform sends your API key directly to the provider, and you are billed at the provider's rates.
 
@@ -55,7 +55,7 @@ Your API key is encrypted before being stored in the database:
 - **Access**: Only you (and workspace admins, for workspace keys) can view or modify the key. The raw key is never displayed after saving.
 
 ::: tip
-Rotate your API keys periodically. Remove the old key from WebMCP Master, generate a new one from the provider, and save the new key.
+Rotate your API keys periodically. Remove the old key from Goldnat, generate a new one from the provider, and save the new key.
 :::
 
 ## Benefits
@@ -68,8 +68,8 @@ Rotate your API keys periodically. Remove the old key from WebMCP Master, genera
 
 ## Risks and Considerations
 
-1. **You pay the provider** — costs are charged to your provider account, not WebMCP Master
-2. **No platform billing visibility** — BYOK usage does not appear in WebMCP Master's billing or credit balance (it does appear in Analytics for call count and token usage)
+1. **You pay the provider** — costs are charged to your provider account, not Goldnat
+2. **No platform billing visibility** — BYOK usage does not appear in Goldnat's billing or credit balance (it does appear in Analytics for call count and token usage)
 3. **Key management** — if your key is revoked or expires, AI calls will fail until you update it
 4. **Provider rate limits** — if you exceed the provider's rate limits, requests will be throttled
 
@@ -78,7 +78,7 @@ Rotate your API keys periodically. Remove the old key from WebMCP Master, genera
 ### Rotating
 
 1. Generate a new key from the provider's dashboard.
-2. Go to **Settings** > **API Key** in WebMCP Master.
+2. Go to **Settings** > **API Key** in Goldnat.
 3. Click **Remove Key** to delete the old one.
 4. Enter the new key and click **Save Key**.
 
