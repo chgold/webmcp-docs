@@ -1,11 +1,11 @@
 ---
 title: Registering in the Directory
-description: List your WebMCP-enabled site in the public directory — registration, verification, and benefits.
+description: List your Servio-enabled site in the public directory — registration, verification, and benefits.
 ---
 
 # Registering in the Directory
 
-The Goldnat Directory is a public catalog of WebMCP-enabled sites. Registering your site makes it discoverable by all Goldnat users, who can connect with one click.
+The Goldnat Directory is a public catalog of Servio-enabled sites. Registering your site makes it discoverable by all Goldnat users, who can connect with one click.
 
 ## Why Register
 
@@ -30,7 +30,7 @@ More connected users means more AI interactions with your site, driving engageme
 ### Step 1: Prepare Your Site
 
 Before registering, ensure:
-- Your WebMCP manifest is live at `/.well-known/webmcp.json`
+- Your Servio manifest is live at `/.well-known/servio.json`
 - The manifest passes validation (valid JSON, required fields present)
 - At least one tool is defined
 - Authentication is configured (Bearer or OAuth)

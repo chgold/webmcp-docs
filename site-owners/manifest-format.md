@@ -1,19 +1,19 @@
 ---
 title: Manifest Format
-description: Complete specification of the WebMCP manifest JSON schema — required fields, tool definitions, authentication, and examples.
+description: Complete specification of the Servio manifest JSON schema — required fields, tool definitions, authentication, and examples.
 ---
 
 # Manifest Format
 
-The WebMCP manifest is a JSON document that describes your site's identity, available tools, and authentication method. It is served at a well-known URL and consumed by AI platforms like Goldnat.
+The Servio manifest is a JSON document that describes your site's identity, available tools, and authentication method. It is served at a well-known URL and consumed by AI platforms like Goldnat.
 
 ## Manifest Location
 
 Serve the manifest at one of these paths (checked in order):
 
-1. `/.well-known/webmcp.json` (recommended)
-2. `/webmcp.json`
-3. `/api/webmcp/manifest`
+1. `/.well-known/servio.json` (recommended)
+2. `/servio.json`
+3. `/api/servio/manifest`
 
 The manifest must be served over HTTPS with `Content-Type: application/json`.
 
@@ -72,7 +72,7 @@ The base URL for tool execution. All tool calls are sent to `{server.url}/tools/
 
 ```json
 "server": {
-  "url": "https://community.example.com/api/webmcp"
+  "url": "https://community.example.com/api/servio"
 }
 ```
 
@@ -189,7 +189,7 @@ A token provided by Goldnat during the Directory registration process. Add it to
   "version": "2.1.0",
   "description": "Web developer community forum with 50,000 members",
   "server": {
-    "url": "https://devcommunity.example.com/api/webmcp"
+    "url": "https://devcommunity.example.com/api/servio"
   },
   "auth": {
     "type": "oauth2",

@@ -1,20 +1,20 @@
 ---
 title: Supported Platforms
-description: Platforms compatible with the WebMCP protocol — WordPress, XenForo, Drupal, Shopify, and custom integrations.
+description: Platforms compatible with the Servio protocol — WordPress, XenForo, Drupal, Shopify, and custom integrations.
 ---
 
 # Supported Platforms
 
-Goldnat works with any website that implements the WebMCP protocol. Several popular platforms have ready-made integrations, while custom sites can implement the protocol directly.
+Goldnat works with any website that implements the Servio protocol. Several popular platforms have ready-made integrations, while custom sites can implement the protocol directly.
 
 ## WordPress
 
 | Detail | Value |
 |--------|-------|
-| **Integration** | WebMCP Plugin |
+| **Integration** | Servio Plugin |
 | **Installation** | WordPress plugin directory or manual upload |
-| **Config** | wp-admin > Settings > WebMCP |
-| **Manifest** | Auto-generated at `/.well-known/webmcp.json` |
+| **Config** | wp-admin > Settings > Servio |
+| **Manifest** | Auto-generated at `/.well-known/servio.json` |
 | **Auth** | Bearer token or OAuth 2.0 |
 
 ### Available Tools
@@ -35,10 +35,10 @@ Goldnat works with any website that implements the WebMCP protocol. Several popu
 
 1. Install the plugin from the WordPress plugin directory.
 2. Activate it in wp-admin > Plugins.
-3. Go to Settings > WebMCP.
+3. Go to Settings > Servio.
 4. Choose which content types to expose as tools.
 5. Configure authentication (generate Bearer tokens per user, or enable OAuth).
-6. Save. The manifest is now live at `/.well-known/webmcp.json`.
+6. Save. The manifest is now live at `/.well-known/servio.json`.
 
 ## XenForo
 
@@ -47,7 +47,7 @@ Goldnat works with any website that implements the WebMCP protocol. Several popu
 | **Integration** | AI Connect Addon |
 | **Installation** | Upload via XenForo admin panel |
 | **Config** | Admin > AI Connect > Settings |
-| **Manifest** | `/.well-known/webmcp.json` |
+| **Manifest** | `/.well-known/servio.json` |
 | **Auth** | Bearer token or OAuth 2.0 |
 
 ### Available Tools
@@ -75,10 +75,10 @@ Goldnat works with any website that implements the WebMCP protocol. Several popu
 
 | Detail | Value |
 |--------|-------|
-| **Integration** | WebMCP Module |
+| **Integration** | Servio Module |
 | **Installation** | Composer or manual upload |
-| **Config** | Admin > Configuration > WebMCP |
-| **Manifest** | `/.well-known/webmcp.json` |
+| **Config** | Admin > Configuration > Servio |
+| **Manifest** | `/.well-known/servio.json` |
 | **Auth** | Bearer token or OAuth (via Drupal OAuth module) |
 
 ### Available Tools
@@ -94,10 +94,10 @@ Goldnat works with any website that implements the WebMCP protocol. Several popu
 
 ### Setup Steps
 
-1. Install via Composer: `composer require drupal/webmcp`
+1. Install via Composer: `composer require drupal/servio`
 2. Enable the module in Admin > Extend.
-3. Configure at Admin > Configuration > WebMCP.
-4. Map Drupal content types to WebMCP tools.
+3. Configure at Admin > Configuration > Servio.
+4. Map Drupal content types to Servio tools.
 5. Set up authentication.
 
 ## Shopify
@@ -106,7 +106,7 @@ Goldnat works with any website that implements the WebMCP protocol. Several popu
 |--------|-------|
 | **Integration** | Custom App |
 | **Installation** | Shopify App Store or custom app installation |
-| **Config** | Shopify admin > Apps > WebMCP |
+| **Config** | Shopify admin > Apps > Servio |
 | **Manifest** | Custom URL |
 | **Auth** | Bearer token (Shopify API key) |
 
@@ -125,17 +125,17 @@ Goldnat works with any website that implements the WebMCP protocol. Several popu
 ### Setup Steps
 
 1. Create a custom app in Shopify admin.
-2. Configure the WebMCP manifest endpoint.
+2. Configure the Servio manifest endpoint.
 3. Generate API credentials.
 4. Deploy the manifest to your Shopify app's URL.
 
 ## Custom Implementation
 
-Any website can support WebMCP by implementing the protocol:
+Any website can support Servio by implementing the protocol:
 
 | Requirement | Details |
 |-------------|---------|
-| **Manifest** | JSON file at `/.well-known/webmcp.json` |
+| **Manifest** | JSON file at `/.well-known/servio.json` |
 | **HTTPS** | Required for all endpoints |
 | **Tool endpoints** | HTTP POST handlers for each tool |
 | **Authentication** | Bearer token or OAuth 2.0 + PKCE |
@@ -149,7 +149,7 @@ At minimum, you need:
 2. An API endpoint that handles the tool call
 3. Bearer token authentication
 
-See the [Adding WebMCP to Your Site](/site-owners/adding-webmcp) guide for a step-by-step implementation.
+See the [Adding Servio to Your Site](/site-owners/adding-servio) guide for a step-by-step implementation.
 
 ### Example: Express.js
 
@@ -158,11 +158,11 @@ const express = require('express');
 const app = express();
 
 // Serve manifest
-app.get('/.well-known/webmcp.json', (req, res) => {
+app.get('/.well-known/servio.json', (req, res) => {
   res.json({
     name: 'My App',
     version: '1.0.0',
-    server: { url: 'https://myapp.com/api/webmcp' },
+    server: { url: 'https://myapp.com/api/servio' },
     auth: { type: 'bearer' },
     tools: [{
       name: 'search_items',
@@ -179,7 +179,7 @@ app.get('/.well-known/webmcp.json', (req, res) => {
 });
 
 // Handle tool calls
-app.post('/api/webmcp/tools/:toolName', authenticate, (req, res) => {
+app.post('/api/servio/tools/:toolName', authenticate, (req, res) => {
   const { toolName } = req.params;
   const input = req.body;
   // Process and return results...
@@ -189,7 +189,7 @@ app.post('/api/webmcp/tools/:toolName', authenticate, (req, res) => {
 
 ## Coming Soon
 
-The following platforms are on the WebMCP integration roadmap:
+The following platforms are on the Servio integration roadmap:
 
 - **Ghost** — blog platform
 - **Discourse** — forum platform

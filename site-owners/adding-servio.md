@@ -1,15 +1,15 @@
 ---
-title: Adding WebMCP to Your Site
-description: Integrate the WebMCP protocol with your website — WordPress, XenForo, Drupal, and custom implementations.
+title: Adding Servio to Your Site
+description: Integrate the Servio protocol with your website — WordPress, XenForo, Drupal, and custom implementations.
 ---
 
-# Adding WebMCP to Your Site
+# Adding Servio to Your Site
 
-This guide covers how to add WebMCP support to your website so users can connect it to Goldnat and interact with it through AI.
+This guide covers how to add Servio support to your website so users can connect it to Goldnat and interact with it through AI.
 
 ## Overview
 
-Adding WebMCP to your site involves three steps:
+Adding Servio to your site involves three steps:
 
 1. **Publish a manifest** — a JSON file describing your site and its tools
 2. **Implement tool endpoints** — API endpoints that handle tool calls
@@ -19,13 +19,13 @@ Adding WebMCP to your site involves three steps:
 
 ### Install the Plugin
 
-1. Download the WebMCP plugin from the WordPress plugin directory or upload it manually.
+1. Download the Servio plugin from the WordPress plugin directory or upload it manually.
 2. Go to **wp-admin > Plugins > Add New > Upload Plugin**.
 3. Install and activate the plugin.
 
 ### Configure
 
-1. Go to **wp-admin > Settings > WebMCP**.
+1. Go to **wp-admin > Settings > Servio**.
 2. The plugin auto-generates a manifest based on your site's content types.
 3. Review the available tools (e.g., `search_posts`, `get_post`, `create_post`, `list_categories`).
 4. Configure authentication — the plugin supports Bearer token and OAuth.
@@ -33,7 +33,7 @@ Adding WebMCP to your site involves three steps:
 
 ### Generated Manifest
 
-The plugin publishes the manifest at `/.well-known/webmcp.json` automatically. It includes tools for:
+The plugin publishes the manifest at `/.well-known/servio.json` automatically. It includes tools for:
 
 - Searching and reading posts, pages, and comments
 - Creating and editing content (with appropriate permissions)
@@ -53,7 +53,7 @@ The plugin publishes the manifest at `/.well-known/webmcp.json` automatically. I
 1. Go to **Admin > AI Connect > Settings**.
 2. Configure which forum features to expose as tools.
 3. Set up authentication (Bearer token per user, or OAuth).
-4. The manifest is published at `/.well-known/webmcp.json`.
+4. The manifest is published at `/.well-known/servio.json`.
 
 ### Available Tools
 
@@ -67,9 +67,9 @@ The plugin publishes the manifest at `/.well-known/webmcp.json` automatically. I
 
 ### Install the Module
 
-1. Install the WebMCP Drupal module via Composer or manual upload.
+1. Install the Servio Drupal module via Composer or manual upload.
 2. Enable it in **Admin > Extend**.
-3. Configure at **Admin > Configuration > WebMCP**.
+3. Configure at **Admin > Configuration > Servio**.
 
 ### Configure
 
@@ -80,11 +80,11 @@ The module supports:
 
 ## Custom Implementation
 
-For any website or application, implement the WebMCP protocol directly:
+For any website or application, implement the Servio protocol directly:
 
 ### Step 1: Create the Manifest
 
-Create a JSON file and serve it at `/.well-known/webmcp.json`:
+Create a JSON file and serve it at `/.well-known/servio.json`:
 
 ```json
 {
@@ -92,7 +92,7 @@ Create a JSON file and serve it at `/.well-known/webmcp.json`:
   "version": "1.0.0",
   "description": "Project management tool",
   "server": {
-    "url": "https://myapp.example.com/api/webmcp"
+    "url": "https://myapp.example.com/api/servio"
   },
   "auth": {
     "type": "bearer"
@@ -126,7 +126,7 @@ Create a JSON file and serve it at `/.well-known/webmcp.json`:
 Create an API endpoint that handles tool call requests:
 
 ```
-POST /api/webmcp/tools/{tool_name}
+POST /api/servio/tools/{tool_name}
 Authorization: Bearer <user-token>
 Content-Type: application/json
 
@@ -171,14 +171,14 @@ For OAuth (recommended for production):
 
 After setting up:
 
-1. Visit `https://yoursite.com/.well-known/webmcp.json` in a browser — verify the manifest loads correctly
+1. Visit `https://yoursite.com/.well-known/servio.json` in a browser — verify the manifest loads correctly
 2. Add your site in Goldnat's vault — the platform should discover the manifest and list the tools
 3. Start a chat with your site selected — ask the AI to use one of your tools
 4. Check your server logs — verify the tool call arrived with proper authentication
 
 ## Checklist
 
-- [ ] Manifest served at `/.well-known/webmcp.json` over HTTPS
+- [ ] Manifest served at `/.well-known/servio.json` over HTTPS
 - [ ] All tools defined with name, description, and input_schema
 - [ ] Authentication configured (Bearer or OAuth)
 - [ ] Tool endpoints return valid JSON

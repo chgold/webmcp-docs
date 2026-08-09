@@ -10,7 +10,7 @@ This guide walks you through your first interaction with Goldnat. By the end, yo
 ## Prerequisites
 
 - A Google account (used for sign-in)
-- A website that supports the WebMCP protocol, or a site where you have an API token
+- A website that supports the Servio protocol, or a site where you have an API token
 
 ## Step 1: Sign In
 
@@ -22,11 +22,11 @@ New accounts receive **50 welcome credits** to get started at no cost.
 
 1. From the Dashboard, click **Add Site** (or navigate to **Sites** in the sidebar).
 2. In the Quick Connect dialog, enter the site URL (e.g., `https://community.example.com`).
-3. Paste your API token for that site. If the site supports WebMCP OAuth, you can authenticate directly instead.
+3. Paste your API token for that site. If the site supports Servio OAuth, you can authenticate directly instead.
 4. Click **Add**. The platform will fetch the site manifest and register all available tools.
 
 ::: tip
-If you do not have a site yet, browse the **Directory** to discover WebMCP-enabled sites and connect with one click.
+If you do not have a site yet, browse the **Directory** to discover Servio-enabled sites and connect with one click.
 :::
 
 ## Step 3: Start a Chat Session

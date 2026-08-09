@@ -18,7 +18,7 @@ The Vault is where all your site connections are stored. Every token, credential
 5. Paste your **API Token**.
 6. Click **Add**.
 
-The platform will attempt to fetch the site's WebMCP manifest to discover available tools. If the manifest is found, tool details are filled in automatically.
+The platform will attempt to fetch the site's Servio manifest to discover available tools. If the manifest is found, tool details are filled in automatically.
 
 ### Prompt Token Detection
 
@@ -80,8 +80,8 @@ The Vault page is organized into two sections:
 ### Your Sites
 Sites you connected manually by pasting API tokens. These are personal to your account.
 
-### WebMCP Site Tokens
-Tokens generated automatically through the WebMCP OAuth flow. These appear when you connect via the Directory using OAuth.
+### Servio Site Tokens
+Tokens generated automatically through the Servio OAuth flow. These appear when you connect via the Directory using OAuth.
 
 ## Username Detection
 

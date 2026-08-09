@@ -16,7 +16,7 @@ This page covers the most common issues users encounter and how to resolve them.
 **Causes and solutions:**
 
 1. **Wrong URL** — verify the URL is correct and includes `https://`.
-2. **No manifest** — the site may not have a manifest at the standard paths (`/.well-known/webmcp.json`, `/webmcp.json`, `/api/webmcp/manifest`). Contact the site administrator.
+2. **No manifest** — the site may not have a manifest at the standard paths (`/.well-known/servio.json`, `/servio.json`, `/api/servio/manifest`). Contact the site administrator.
 3. **SSL error** — the site's SSL certificate may be invalid or expired. Goldnat does not connect to HTTP-only sites.
 4. **Firewall blocking** — the site may block requests from Goldnat's servers. Contact the site administrator to allow incoming requests.
 5. **Site down** — try again later if the site is temporarily unreachable.

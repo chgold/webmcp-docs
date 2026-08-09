@@ -1,12 +1,12 @@
 ---
 layout: home
 title: Goldnat Documentation
-description: Documentation for Goldnat — the AI agents platform that connects websites to large language models via the WebMCP protocol.
+description: Documentation for Goldnat — the AI agents platform that connects websites to large language models via the Servio protocol.
 
 hero:
   name: Goldnat
   text: Documentation
-  tagline: Connect your websites to AI. Chat, automate, and build intelligent workflows with the WebMCP protocol.
+  tagline: Connect your websites to AI. Chat, automate, and build intelligent workflows with the Servio protocol.
   actions:
     - theme: brand
       text: Quickstart
@@ -16,11 +16,11 @@ hero:
       link: /features/chat
     - theme: alt
       text: Site Owners
-      link: /site-owners/what-is-webmcp
+      link: /site-owners/what-is-servio
 
 features:
   - title: Connect Sites
-    details: Add any WebMCP-compatible website to your encrypted vault. The platform detects available tools automatically from the site manifest and makes them available to AI models.
+    details: Add any Servio-compatible website to your encrypted vault. The platform detects available tools automatically from the site manifest and makes them available to AI models.
   - title: Chat with AI
     details: Start conversations with leading AI models — Claude, GPT-4, Gemini, and more. The AI can read data from your sites, execute actions, and return structured artifacts.
   - title: Run Agents

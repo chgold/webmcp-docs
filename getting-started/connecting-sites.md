@@ -7,11 +7,11 @@ description: How to connect websites to Goldnat using the Vault — token types,
 
 Every interaction between AI and your website starts with a connection stored in the **Vault**. This guide covers the different ways to connect a site, what happens behind the scenes, and how to troubleshoot common issues.
 
-## What is the WebMCP Protocol
+## What is the Servio Protocol
 
-The Web Model Context Protocol (WebMCP) is a standard that lets websites expose tools to AI models. A site publishes a **manifest** — a JSON document that describes the site's name, available tools, and authentication method. When you connect a site in Goldnat, the platform reads this manifest and makes the tools available in your chat sessions and agents.
+Servio is a protocol that lets websites expose tools to AI models. A site publishes a **manifest** — a JSON document that describes the site's name, available tools, and authentication method. When you connect a site in Goldnat, the platform reads this manifest and makes the tools available in your chat sessions and agents.
 
-Unlike desktop-focused MCP implementations, WebMCP is designed for web-based platforms — forums, CMS systems, e-commerce sites, and custom applications.
+Unlike desktop-focused MCP implementations, Servio is designed for web-based platforms — forums, CMS systems, e-commerce sites, and custom applications.
 
 ## Adding a Site via the Vault
 
@@ -29,9 +29,9 @@ The platform will then:
 2. Encrypt your credentials and store them in the vault.
 3. Show a confirmation with the list of discovered tools.
 
-### OAuth Connection (WebMCP Sites)
+### OAuth Connection (Servio Sites)
 
-For sites that support the WebMCP OAuth flow:
+For sites that support the Servio OAuth flow:
 
 1. Browse the **Directory** or enter the site URL.
 2. Click **Connect**. You will be redirected to the site's login page.
@@ -52,9 +52,9 @@ OAuth tokens are refreshed automatically when they expire.
 
 When you add a site URL, the platform sends a `GET` request to discover the manifest. It checks the following paths in order:
 
-1. `/.well-known/webmcp.json`
-2. `/webmcp.json`
-3. `/api/webmcp/manifest`
+1. `/.well-known/servio.json`
+2. `/servio.json`
+3. `/api/servio/manifest`
 
 The manifest contains:
 - **Site name and version** — displayed in the UI

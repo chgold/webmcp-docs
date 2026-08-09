@@ -147,11 +147,11 @@ Your BYOK key applies to the matching provider's models. If you use a model from
 
 ### What platforms are supported?
 
-WordPress, XenForo, Drupal, and Shopify have ready-made plugins/addons. Any site can integrate by implementing the WebMCP manifest and tool endpoints. See [Supported Platforms](/reference/platforms).
+WordPress, XenForo, Drupal, and Shopify have ready-made plugins/addons. Any site can integrate by implementing the Servio manifest and tool endpoints. See [Supported Platforms](/reference/platforms).
 
 ### Can I use Goldnat with my custom application?
 
-Yes. Implement the WebMCP protocol (manifest + tool endpoints + authentication) on your application. See [Adding WebMCP to Your Site](/site-owners/adding-webmcp).
+Yes. Implement the Servio protocol (manifest + tool endpoints + authentication) on your application. See [Adding Servio to Your Site](/site-owners/adding-servio).
 
 ### Do I need to modify my site's code?
 

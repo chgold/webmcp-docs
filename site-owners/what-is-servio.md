@@ -1,22 +1,22 @@
 ---
-title: What is the WebMCP Protocol
-description: Understanding the Web Model Context Protocol — how it connects websites to AI agents, architecture, and benefits for site owners.
+title: What is the Servio Protocol
+description: Understanding the Servio protocol — how it connects websites to AI agents, architecture, and benefits for site owners.
 ---
 
-# What is the WebMCP Protocol
+# What is the Servio Protocol
 
-The Web Model Context Protocol (WebMCP) is a standard that allows websites to expose structured tools to AI models. It defines how a site publishes its capabilities, how AI platforms discover them, and how tool calls are authenticated and executed.
+Servio is a protocol that allows websites to expose structured tools to AI models. It defines how a site publishes its capabilities, how AI platforms discover them, and how tool calls are authenticated and executed.
 
-## The Problem WebMCP Solves
+## The Problem Servio Solves
 
-AI models are powerful at understanding text and reasoning, but they cannot interact with websites on their own. They cannot log in to your forum, search your product catalog, or post a reply. WebMCP bridges this gap by providing a standardized interface between websites and AI platforms.
+AI models are powerful at understanding text and reasoning, but they cannot interact with websites on their own. They cannot log in to your forum, search your product catalog, or post a reply. Servio bridges this gap by providing a standardized interface between websites and AI platforms.
 
-Without WebMCP:
+Without Servio:
 - Users copy-paste data between their site and an AI chat
 - Automation requires custom API integrations for each site
 - There is no standard for exposing site capabilities to AI
 
-With WebMCP:
+With Servio:
 - Sites publish a manifest describing their tools
 - AI platforms discover and present these tools automatically
 - Users and agents interact with sites through natural language
@@ -25,9 +25,9 @@ With WebMCP:
 
 The Model Context Protocol (MCP) was originally designed for desktop applications — a local server running on your machine, exposing tools to a desktop AI client.
 
-WebMCP extends this concept to the **web**:
+Servio extends this concept to the **web**:
 
-| Aspect | MCP (Desktop) | WebMCP (Web) |
+| Aspect | MCP (Desktop) | Servio (Web) |
 |--------|---------------|--------------|
 | **Hosting** | Local machine | Remote web server |
 | **Discovery** | Manual configuration | Manifest at well-known URL |
@@ -37,11 +37,11 @@ WebMCP extends this concept to the **web**:
 
 ## Architecture
 
-The WebMCP architecture has three components:
+The Servio architecture has three components:
 
 ### 1. The Manifest
 
-A JSON document published by the site at a well-known URL (e.g., `/.well-known/webmcp.json`). It describes:
+A JSON document published by the site at a well-known URL (e.g., `/.well-known/servio.json`). It describes:
 - Site identity (name, version, description)
 - Available tools (name, description, input parameters)
 - Authentication method (OAuth endpoints or Bearer token)
@@ -81,7 +81,7 @@ User sends message → AI model decides to call a tool
 
 ### Discoverability
 
-By publishing a WebMCP manifest, your site becomes available in the Goldnat Directory. Users can find and connect to your site with one click.
+By publishing a Servio manifest, your site becomes available in the Goldnat Directory. Users can find and connect to your site with one click.
 
 ### AI-Powered User Experience
 
@@ -93,18 +93,18 @@ Users can build agents that perform repetitive tasks on your site — monitoring
 
 ### No Code Changes to Your Core App
 
-The WebMCP integration is a separate endpoint layer. Your existing application logic, database, and authentication system remain unchanged. You add a manifest file and tool endpoints alongside your existing API.
+The Servio integration is a separate endpoint layer. Your existing application logic, database, and authentication system remain unchanged. You add a manifest file and tool endpoints alongside your existing API.
 
 ## Supported Platforms
 
-WebMCP integrations are available for:
+Servio integrations are available for:
 
 | Platform | Integration Method |
 |----------|-------------------|
-| **WordPress** | WebMCP plugin (installable from wp-admin) |
+| **WordPress** | Servio plugin (installable from wp-admin) |
 | **XenForo** | AI Connect addon |
-| **Drupal** | WebMCP module |
+| **Drupal** | Servio module |
 | **Shopify** | Custom app |
 | **Custom** | Any site that implements the manifest and tool endpoints |
 
-See [Adding WebMCP to Your Site](/site-owners/adding-webmcp) for platform-specific setup guides.
+See [Adding Servio to Your Site](/site-owners/adding-servio) for platform-specific setup guides.

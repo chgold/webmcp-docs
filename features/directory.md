@@ -1,11 +1,11 @@
 ---
 title: Site Directory
-description: Browse, search, and connect with WebMCP-enabled sites — filtering, verification, and site registration.
+description: Browse, search, and connect with Servio-enabled sites — filtering, verification, and site registration.
 ---
 
 # Site Directory
 
-The Directory is a public catalog of websites that support the WebMCP protocol. Browse available sites, filter by platform, connect with one click, and register your own site for others to discover.
+The Directory is a public catalog of websites that support the Servio protocol. Browse available sites, filter by platform, connect with one click, and register your own site for others to discover.
 
 ## Browsing Sites
 
@@ -88,7 +88,7 @@ Verified sites display a badge and rank higher in search results.
 During registration, the platform validates:
 
 - The manifest URL is reachable over HTTPS
-- The JSON structure matches the WebMCP manifest schema
+- The JSON structure matches the Servio manifest schema
 - Required fields are present: `name`, `version`, `tools`, `server`, `auth`
 - At least one tool is defined with a valid input schema
 

@@ -1,15 +1,15 @@
 ---
 title: Authentication
-description: Implement authentication for your WebMCP site — OAuth 2.0 with PKCE, Bearer tokens, scopes, and security best practices.
+description: Implement authentication for your Servio site — OAuth 2.0 with PKCE, Bearer tokens, scopes, and security best practices.
 ---
 
 # Authentication
 
-Authentication ensures that tool calls from Goldnat are authorized to access your site's data. WebMCP supports two authentication methods: Bearer tokens and OAuth 2.0 with PKCE.
+Authentication ensures that tool calls from Goldnat are authorized to access your site's data. Servio supports two authentication methods: Bearer tokens and OAuth 2.0 with PKCE.
 
 ## OAuth 2.0 with PKCE (Recommended)
 
-OAuth is the recommended authentication method for production WebMCP sites. It provides per-user tokens, automatic refresh, and granular scopes.
+OAuth is the recommended authentication method for production Servio sites. It provides per-user tokens, automatic refresh, and granular scopes.
 
 ### Flow Overview
 
@@ -127,7 +127,7 @@ For simpler integrations, Bearer token authentication requires no OAuth flow. Th
 3. On every tool call, Goldnat sends the token in the `Authorization` header:
 
 ```
-POST /api/webmcp/tools/search_threads
+POST /api/servio/tools/search_threads
 Authorization: Bearer <user-token>
 Content-Type: application/json
 
@@ -142,7 +142,7 @@ On your site, validate each incoming request:
 
 ```python
 # Example (Python/Flask)
-@app.route('/api/webmcp/tools/<tool_name>', methods=['POST'])
+@app.route('/api/servio/tools/<tool_name>', methods=['POST'])
 def handle_tool_call(tool_name):
     token = request.headers.get('Authorization', '').replace('Bearer ', '')
     

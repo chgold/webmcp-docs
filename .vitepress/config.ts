@@ -81,8 +81,8 @@ export default defineConfig({
         {
           text: 'Site Owners',
           items: [
-            { text: 'What is WebMCP', link: '/site-owners/what-is-webmcp' },
-            { text: 'Adding WebMCP to Your Site', link: '/site-owners/adding-webmcp' },
+            { text: 'What is Servio', link: '/site-owners/what-is-servio' },
+            { text: 'Adding Servio to Your Site', link: '/site-owners/adding-servio' },
             { text: 'Manifest Format', link: '/site-owners/manifest-format' },
             { text: 'Authentication', link: '/site-owners/authentication' },
             { text: 'Registering in the Directory', link: '/site-owners/registering' },
