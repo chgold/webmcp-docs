@@ -126,10 +126,6 @@ export default defineConfig({
       ],
     },
 
-    socialLinks: [
-      { icon: 'github', link: 'https://github.com/goldnat' },
-    ],
-
     footer: {
       message: 'Goldnat',
       copyright: 'goldnat.ai',
