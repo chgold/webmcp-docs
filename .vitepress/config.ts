@@ -1,16 +1,47 @@
 import { defineConfig } from 'vitepress'
 
+const HOSTNAME = 'https://docs.goldnat.ai'
+
 export default defineConfig({
   title: 'Goldnat Docs',
-  description: 'Documentation for Goldnat — AI agents platform',
+  description: 'Documentation for Goldnat — the AI agents platform that connects websites to large language models via the Servio protocol.',
   base: '/',
   cleanUrls: true,
+
+  sitemap: {
+    hostname: HOSTNAME,
+    transformItems: (items) => items.filter(item => !item.url.includes('AGENTS')),
+  },
 
   head: [
     ['meta', { name: 'theme-color', content: '#6366f1' }],
     ['meta', { property: 'og:type', content: 'website' }],
     ['meta', { property: 'og:site_name', content: 'Goldnat Docs' }],
+    ['link', { rel: 'canonical', href: HOSTNAME }],
   ],
+
+  transformPageData(pageData) {
+    const title = pageData.frontmatter.layout === 'home'
+      ? 'Goldnat Documentation — AI Agents Platform'
+      : `${pageData.title} | Goldnat Docs`
+
+    const description = pageData.frontmatter.description || pageData.description || 'Documentation for Goldnat — AI agents platform for connecting websites to AI.'
+
+    const canonicalUrl = `${HOSTNAME}/${pageData.relativePath}`
+      .replace(/index\.md$/, '')
+      .replace(/\.md$/, '')
+
+    pageData.frontmatter.head ??= []
+    pageData.frontmatter.head.push(
+      ['meta', { property: 'og:title', content: title }],
+      ['meta', { property: 'og:description', content: description }],
+      ['meta', { property: 'og:url', content: canonicalUrl }],
+      ['meta', { name: 'twitter:card', content: 'summary' }],
+      ['meta', { name: 'twitter:title', content: title }],
+      ['meta', { name: 'twitter:description', content: description }],
+      ['link', { rel: 'canonical', href: canonicalUrl }],
+    )
+  },
 
   themeConfig: {
     siteTitle: 'Goldnat',
