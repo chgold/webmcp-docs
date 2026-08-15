@@ -31,7 +31,7 @@ Credit and debit cards via Stripe. We support Visa, Mastercard, American Express
 
 ### Is there a free trial?
 
-New accounts receive 50 welcome credits at no cost. This lets you try the platform before purchasing a plan. The free tier is always available with no time limit.
+New accounts receive 1,850 welcome credits at no cost. This lets you try the platform before purchasing a plan. The free tier is always available with no time limit.
 
 ### Can I get a refund?
 
@@ -49,7 +49,7 @@ No. Monthly allocation credits expire at the end of each billing cycle. Purchase
 
 ### How are credits calculated?
 
-Credits are based on token usage: `credits = (input_tokens * input_rate + output_tokens * output_rate) / 1000`. Rates vary by model — see [Understanding Credits](/getting-started/understanding-credits).
+The platform calculates the provider cost of the call in USD from the model's per-token rates, then converts that to credits with a markup. Rates vary by model — see [Understanding Credits](/getting-started/understanding-credits).
 
 ### Why did a message cost more credits than expected?
 
@@ -147,7 +147,7 @@ Your BYOK key applies to the matching provider's models. If you use a model from
 
 ### What platforms are supported?
 
-WordPress, XenForo, Drupal, and Shopify have ready-made plugins/addons. Any site can integrate by implementing the Servio manifest and tool endpoints. See [Supported Platforms](/reference/platforms).
+WordPress, XenForo, Drupal, Shopify, Discourse, Ghost, Moodle, NodeBB, and PrestaShop have ready-made plugins/addons — browse them all at [plugins.goldnat.ai](https://plugins.goldnat.ai). Any other site can integrate by implementing the Servio manifest and tool endpoints. See [Supported Platforms](/reference/platforms).
 
 ### Can I use Goldnat with my custom application?
 
@@ -155,7 +155,7 @@ Yes. Implement the Servio protocol (manifest + tool endpoints + authentication) 
 
 ### Do I need to modify my site's code?
 
-For supported platforms (WordPress, XenForo), install the plugin/addon — no code changes needed. For custom sites, you need to add manifest and tool endpoints.
+No — if a plugin exists for your platform, install it and no code changes are needed. For custom sites, you need to add manifest and tool endpoints.
 
 ## Privacy
 
