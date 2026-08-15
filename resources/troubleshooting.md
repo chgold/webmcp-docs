@@ -72,7 +72,7 @@ This page covers the most common issues users encounter and how to resolve them.
 1. Check **Analytics** to see per-model credit usage.
 2. Review active scheduled agents — they consume credits on each run.
 3. Long conversations cost more per message because previous messages are included as input tokens.
-4. Switch to a cheaper model for simple tasks (Claude Haiku or GPT-4o Mini).
+4. Switch to a cheaper model for simple tasks (Claude Haiku 4.5).
 
 ## Agent Issues
 

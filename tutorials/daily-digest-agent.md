@@ -91,7 +91,7 @@ Check that:
 - The agent successfully calls the search/list tools
 - The digest contains accurate data
 - The format matches your expectations
-- Credit usage is reasonable (should be 2-5 credits with Claude Haiku)
+- Credit usage is reasonable (should be 2-5 credits with Claude Haiku 4.5)
 
 ## Step 3: Review the Output
 

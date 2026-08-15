@@ -40,7 +40,7 @@ Create a **Site Group** containing both sites:
 |-------|-------|
 | **Name** | Product Update Monitor |
 | **Description** | Checks store for changes and posts updates |
-| **Model** | Claude Haiku |
+| **Model** | Claude Haiku 4.5 |
 | **Sites** | Store Monitor Group |
 | **Max Rounds** | 6 |
 | **Trigger** | Scheduled |

@@ -102,12 +102,12 @@ For workspace agents, assign a workspace-level API key in the agent configuratio
 
 ## Cost Comparison
 
-| Model | Platform Credits (per 1K output tokens) | Direct Provider Cost (per 1K output tokens) |
-|-------|---------------------------------------|---------------------------------------------|
-| Claude Sonnet 4 | 15 credits (~$0.15) | $0.015 |
-| GPT-4o | 10 credits (~$0.10) | $0.010 |
-| Claude Haiku | 1.25 credits (~$0.013) | $0.001 |
-| GPT-4o Mini | 0.6 credits (~$0.006) | $0.0006 |
+| Model | Relative Platform Credit Cost | Direct Provider Cost (per 1K output tokens) |
+|-------|------------------------------|---------------------------------------------|
+| Claude Opus 5 | Highest | $0.025 |
+| Claude Opus 4.7 | Highest | $0.025 |
+| Claude Sonnet 4.6 | Moderate | $0.015 |
+| Claude Haiku 4.5 | Lowest | $0.004 |
 
 Exact savings depend on your plan's credit pricing and the current provider rates.
 

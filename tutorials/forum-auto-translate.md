@@ -33,7 +33,7 @@ Ensure your forum site is connected in the vault with tools that include:
 |-------|-------|
 | **Name** | Post Translator (EN to ES) |
 | **Description** | Translates new English posts to Spanish |
-| **Model** | GPT-4o Mini (cost-effective for translation) |
+| **Model** | Claude Haiku 4.5 (cost-effective for translation) |
 | **Sites** | Your forum site |
 | **Max Rounds** | 3 |
 | **Trigger** | Webhook |
@@ -123,7 +123,7 @@ curl -X POST "https://goldnat.ai/api/webhooks/agent/YOUR_AGENT_ID" \
 2. Verify the run:
    - Status: Done
    - Steps: read the post, translate, post the reply
-   - Credit usage: typically 1-3 credits with GPT-4o Mini
+   - Credit usage: typically 1-3 credits with Claude Haiku 4.5
 
 ### Verify on the Forum
 
@@ -140,12 +140,12 @@ Update the system prompt to handle:
 
 ## Cost Estimate
 
-Using GPT-4o Mini with 3 max rounds:
+Using Claude Haiku 4.5 with 3 max rounds:
 - Per translation: approximately 0.5-1.5 credits
 - At 50 new posts per day: ~25-75 credits/day (~750-2,250 credits/month)
 
 ::: tip
-GPT-4o Mini provides excellent translation quality at very low cost. Switching to a more expensive model is unnecessary for most translation tasks.
+Claude Haiku 4.5 provides excellent translation quality at very low cost. Switching to a more expensive model is unnecessary for most translation tasks.
 :::
 
 ## Troubleshooting

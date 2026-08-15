@@ -82,7 +82,7 @@ The AI will:
 |-------|-------|
 | **Name** | Cross-Site Sync Agent |
 | **Description** | Syncs data between forum and documentation site |
-| **Model** | Claude Sonnet 4 (complex reasoning needed) |
+| **Model** | Claude Sonnet 4.6 (complex reasoning needed) |
 | **Sites** | Cross-Site Workflow group |
 | **Max Rounds** | 8 |
 | **Trigger** | Scheduled (daily) |
@@ -198,4 +198,4 @@ Create a scheduled agent that runs hourly to keep content synchronized between s
 - Start simple — get a two-site workflow working before adding more sites.
 - Test thoroughly — multi-site agents can have unexpected interactions.
 - Monitor credit usage — more sites means more tool calls per round.
-- Use Claude Haiku for read-heavy workflows and Claude Sonnet 4 for complex reasoning tasks.
+- Use Claude Haiku 4.5 for read-heavy workflows and Claude Sonnet 4.6 for complex reasoning tasks.

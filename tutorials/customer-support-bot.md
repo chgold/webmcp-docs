@@ -35,7 +35,7 @@ If you have not already connected your forum:
 |-------|-------|
 | **Name** | Support Response Drafter |
 | **Description** | Finds unanswered support threads and drafts responses |
-| **Model** | Claude Sonnet 4 (or your preferred model) |
+| **Model** | Claude Sonnet 4.6 (or your preferred model) |
 | **Sites** | Select your forum site |
 | **Max Rounds** | 5 |
 | **Trigger** | Manual (for testing; change to Scheduled later) |
@@ -149,13 +149,13 @@ The agent will now run automatically and produce reports at the scheduled interv
 
 ## Cost Estimate
 
-With Claude Sonnet 4 and 5 max rounds:
+With Claude Sonnet 4.6 and 5 max rounds:
 - Per run: approximately 10-20 credits (depends on thread count and length)
 - Hourly schedule: ~240-480 credits/day
 - Daily schedule: ~10-20 credits/day
 
 ::: tip
-For cost savings, switch to Claude Haiku for monitoring and only use Claude Sonnet 4 for response drafting. Or use BYOK to bypass credit costs entirely.
+For cost savings, switch to Claude Haiku 4.5 for monitoring and only use Claude Sonnet 4.6 for response drafting. Or use BYOK to bypass credit costs entirely.
 :::
 
 ## Next Steps

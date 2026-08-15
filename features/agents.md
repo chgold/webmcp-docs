@@ -13,7 +13,7 @@ An agent consists of:
 
 - **Name** — a descriptive identifier
 - **System prompt** — instructions that define what the agent should do
-- **Model** — the AI model to use (e.g., Claude Sonnet 4)
+- **Model** — the AI model to use (e.g., Claude Sonnet 4.6)
 - **Sites** — which connected sites the agent can interact with
 - **Max rounds** — the maximum number of AI-tool interaction loops (default: 5)
 - **Trigger type** — how the agent is started (manual, scheduled, or webhook)

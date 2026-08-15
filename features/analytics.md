@@ -39,7 +39,7 @@ Below the charts, a detailed table lists per-model statistics:
 
 | Column | Description |
 |--------|-------------|
-| **Model** | The AI model name (e.g., Claude Sonnet 4, GPT-4o) |
+| **Model** | The AI model name (e.g., Claude Sonnet 4.6, Claude Haiku 4.5) |
 | **Calls** | Number of API calls using this model |
 | **Credits** | Credits consumed by this model |
 | **Input Tokens** | Total input tokens for this model |
