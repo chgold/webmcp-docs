@@ -11,15 +11,15 @@ This page provides a comprehensive comparison of all features across Goldnat sub
 
 | | Free | Pro | Harness | Team |
 |--|------|-----|---------|------|
-| **Price** | $0 | $12/mo | $39/mo | $79/mo |
+| **Price** | $0 | $19/mo | $49/mo | $79/mo |
 | **Target User** | Evaluation | Individual | Power user | Teams |
 
 ## Credits
 
 | Feature | Free | Pro | Harness | Team |
 |---------|------|-----|---------|------|
-| Welcome credits (one-time) | 50 | 50 | 50 | 50 |
-| Monthly credits | -- | 1,000 | 5,000 | 10,000 |
+| Welcome credits (one-time) | 1,850 | -- | -- | -- |
+| Monthly credits | -- | 50,000 | 130,000 | 310,000 |
 | Credit rollover | -- | No | No | No |
 | Purchase additional credits | Yes | Yes | Yes | Yes |
 | Auto top-up | No | Yes | Yes | Yes |
@@ -28,11 +28,11 @@ This page provides a comprehensive comparison of all features across Goldnat sub
 
 | Feature | Free | Pro | Harness | Team |
 |---------|------|-----|---------|------|
-| Sites in vault | 3 | 10 | 25 | Unlimited |
-| Sites per chat session | 1 | 3 | 5 | 10 |
-| Site groups | 2 | 10 | 25 | 50 |
-| Sites per group | 20 | 20 | 20 | 20 |
-| Tool deny lists | Yes | Yes | Yes | Yes |
+| Sites in vault | 2 | 10 | 100 | Unlimited |
+| Sites per chat session | 2 | 10 | 50 | 150 |
+| Site groups | 2 | 10 | 50 | 150 |
+| Sites per group | 2 | 10 | 50 | 150 |
+| Tool allow/deny lists | Yes | Yes | Yes | Yes |
 
 ## Chat
 
@@ -51,10 +51,10 @@ This page provides a comprehensive comparison of all features across Goldnat sub
 
 | Feature | Free | Pro | Harness | Team |
 |---------|------|-----|---------|------|
-| Create agents | No | 3 | 10 | Unlimited |
+| Create agents | No | 3 | Unlimited | Unlimited |
 | Manual trigger | No | Yes | Yes | Yes |
 | Scheduled trigger (Cron) | No | No | Yes | Yes |
-| Webhook trigger | No | No | Yes | Yes |
+| Webhook trigger | No | Yes | Yes | Yes |
 | Agent templates | No | Yes | Yes | Yes |
 | Run history | No | Yes | Yes | Yes |
 | Live monitoring | No | Yes | Yes | Yes |
@@ -79,16 +79,16 @@ This page provides a comprehensive comparison of all features across Goldnat sub
 
 | Feature | Free | Pro | Harness | Team |
 |---------|------|-----|---------|------|
-| Personal BYOK key | No | Yes | Yes | Yes |
+| Personal BYOK key | Yes | Yes | Yes | Yes |
 | Workspace AI keys | No | No | No | Yes |
-| Supported providers | -- | All | All | All |
+| Supported providers | All | All | All | All |
 
 ## Monitoring and Analytics
 
 | Feature | Free | Pro | Harness | Team |
 |---------|------|-----|---------|------|
 | Usage analytics | Basic | Full | Full | Full |
-| Tool execution monitor | No | No | Yes | Yes |
+| Tool execution traces | No | Yes | Yes | Yes |
 | Credit breakdown | Yes | Yes | Yes | Yes |
 | Per-model usage stats | No | Yes | Yes | Yes |
 
@@ -96,10 +96,10 @@ This page provides a comprehensive comparison of all features across Goldnat sub
 
 | Feature | Free | Pro | Harness | Team |
 |---------|------|-----|---------|------|
-| Incoming webhooks | No | No | Yes | Yes |
-| Outgoing webhooks | No | No | No | Yes |
-| Webhook schema builder | No | No | Yes | Yes |
-| Webhook secrets | No | No | Yes | Yes |
+| Incoming webhooks | No | Yes | Yes | Yes |
+| Outgoing webhooks | No | No | Yes | Yes |
+| Webhook schema builder | No | Yes | Yes | Yes |
+| Webhook secrets | No | Yes | Yes | Yes |
 
 ## Security
 
@@ -121,4 +121,4 @@ For organizations needing:
 - Priority support
 - On-premise deployment
 
-Contact **support@goldnat.ai** for Enterprise pricing.
+Contact **[support@goldnat.ai](mailto:support@goldnat.ai)** for Enterprise pricing.

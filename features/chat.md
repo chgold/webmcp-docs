@@ -11,7 +11,7 @@ The Chat is the primary way to interact with AI models on Goldnat. You create a 
 
 1. Navigate to **Chat** in the sidebar.
 2. Click **New Session**.
-3. **Select a model** — choose from available models (Claude Sonnet 4, GPT-4o, Gemini 2.5 Pro, etc.). The credit cost per 1K tokens is displayed next to each model.
+3. **Select a model** — choose from available models (e.g., Claude Haiku 4.5, Sonnet 4.6, Opus 5). The credit cost is displayed next to each model.
 4. **Select sites** — check individual sites from your vault, or select a site group. You can also start a chat without any sites for a pure AI conversation.
 5. Click **Start Chat**.
 
@@ -135,15 +135,15 @@ Adding a site mid-session makes its tools available immediately. Removing a site
 
 ### Tool Permission Patterns
 
-Allow and deny lists support wildcard patterns:
+Allow and deny lists support exact names and suffix wildcard patterns (ending with `*`):
 
 | Pattern | Matches |
 |---------|---------|
-| `community_*` | All tools from the "community" site prefix |
-| `store_get_*` | Only read-type tools from the "store" site |
-| `*_delete_*` | Any delete tool from any site |
+| `community_search_threads` | Exactly that one tool |
+| `community_*` | All tools starting with `community_` |
+| `store_get_*` | Only tools starting with `store_get_` |
 
-The deny list takes precedence over the allow list when both match.
+The deny list takes precedence over the allow list when both match a tool.
 
 ## Keyboard Shortcuts
 

@@ -13,31 +13,35 @@ Not every task needs the most powerful model. Match model capability to task com
 
 | Task | Recommended Model | Why |
 |------|-------------------|-----|
-| Simple data retrieval | Claude Haiku / GPT-4o Mini | Low cost, fast, sufficient for reading and formatting data |
-| Content summarization | Gemini 2.5 Flash / GPT-4o Mini | Good comprehension at low cost |
-| Complex analysis | Claude Sonnet 4 / GPT-4o | Higher reasoning capability needed |
-| Code generation | Claude Sonnet 4 | Best code quality |
-| Translation | GPT-4o Mini / Gemini 2.5 Flash | Quality is good even with smaller models |
+| Simple data retrieval | Claude Haiku 4.5 | Lowest cost, fast, sufficient for reading and formatting data |
+| Content summarization | Claude Haiku 4.5 | Good comprehension at very low cost |
+| General analysis | Claude Sonnet 4.6 | Balanced quality and cost |
+| Complex reasoning | Claude Opus 5 | Highest reasoning capability, 1M token context |
+| Code generation | Claude Sonnet 4.6 / Opus 5 | Strong code quality at different price points |
 
-### Credit Cost Comparison
+### Model Cost Comparison
 
-| Model | Input (per 1K tokens) | Output (per 1K tokens) | Relative Cost |
-|-------|----------------------|------------------------|---------------|
-| Claude Haiku | 0.25 | 1.25 | Very Low |
-| GPT-4o Mini | 0.15 | 0.6 | Very Low |
-| Gemini 2.5 Flash | 0.15 | 0.6 | Very Low |
-| GPT-4o | 2.5 | 10 | Medium |
-| Gemini 2.5 Pro | 1.25 | 10 | Medium |
-| Claude Sonnet 4 | 3 | 15 | High |
+All models on Goldnat are from Anthropic. Costs are shown in USD per million tokens — the exact credit cost for each interaction is displayed in the chat UI.
 
-A task that costs 15 credits with Claude Sonnet 4 might cost only 1.25 credits with Claude Haiku — a 12x difference.
+| Model | Input ($/MTok) | Output ($/MTok) | Context | Tier |
+|-------|---------------|-----------------|---------|------|
+| Claude Haiku 4.5 | $0.80 | $4 | 200K | Very Low |
+| Claude Sonnet 4.6 | $3 | $15 | 200K | Medium |
+| Claude Opus 4.7 | $3 | $25 | 200K | High |
+| Claude Opus 5 | $3 | $25 | 1M | High |
+
+A task using Claude Opus 5 for output costs over 6x more than Claude Haiku 4.5. Choosing the right model can dramatically reduce spending.
+
+::: tip
+The platform may have additional model variants available (e.g., dated snapshots). Check the model selector in Chat for the full list and live credit costs.
+:::
 
 ## Use BYOK to Avoid Credit Markup
 
 Platform credits include a markup over raw provider costs. With BYOK, you pay the provider directly at their wholesale rates:
 
-- **Without BYOK**: 1,000 output tokens with Claude Sonnet 4 = 15 credits = ~$0.15
-- **With BYOK**: 1,000 output tokens with Claude Sonnet 4 = $0.015 (direct Anthropic rate)
+- **Without BYOK**: 1,000 output tokens with Claude Sonnet 4.6 = platform credits (including markup)
+- **With BYOK**: 1,000 output tokens with Claude Sonnet 4.6 = $0.015 (direct Anthropic rate, no markup)
 
 If you regularly spend $50+/month in credits, BYOK can save 50-80% depending on the model.
 
@@ -81,19 +85,12 @@ Each agent round costs credits. A runaway agent can consume your entire balance.
 Input tokens: ~1,500 (system prompt + context + tool results)
 Output tokens: ~500 (AI response + tool calls)
 
-Claude Haiku: (1.5 * 0.25) + (0.5 * 1.25) = 1 credit/round
-Claude Sonnet: (1.5 * 3) + (0.5 * 15) = 12 credits/round
+Claude Haiku 4.5:  ~$0.003 per round (very low)
+Claude Sonnet 4.6: ~$0.012 per round (moderate)
+Claude Opus 5:     ~$0.017 per round (higher)
 ```
 
-An agent with `maxRounds: 10` using Claude Sonnet 4 running hourly:
-- Per run: up to 120 credits
-- Per day: up to 2,880 credits
-- Per month: up to 86,400 credits
-
-The same agent with Claude Haiku:
-- Per run: up to 10 credits
-- Per day: up to 240 credits
-- Per month: up to 7,200 credits
+An agent with `maxRounds: 10` using Claude Opus 5 running hourly can cost over 5x more than the same agent using Claude Haiku 4.5. Multiply by 24 hours and 30 days — the difference adds up fast.
 
 Always start with low `maxRounds` and increase only if needed.
 
