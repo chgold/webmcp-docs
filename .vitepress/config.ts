@@ -18,6 +18,10 @@ export default defineConfig({
     ['meta', { property: 'og:type', content: 'website' }],
     ['meta', { property: 'og:site_name', content: 'Goldnat Docs' }],
     ['link', { rel: 'canonical', href: HOSTNAME }],
+    ['meta', { property: 'og:image', content: `${HOSTNAME}/og-image.png` }],
+    ['meta', { property: 'og:image:width', content: '1200' }],
+    ['meta', { property: 'og:image:height', content: '630' }],
+    ['meta', { name: 'twitter:image', content: `${HOSTNAME}/og-image.png` }],
   ],
 
   transformPageData(pageData) {
@@ -36,7 +40,7 @@ export default defineConfig({
       ['meta', { property: 'og:title', content: title }],
       ['meta', { property: 'og:description', content: description }],
       ['meta', { property: 'og:url', content: canonicalUrl }],
-      ['meta', { name: 'twitter:card', content: 'summary' }],
+      ['meta', { name: 'twitter:card', content: 'summary_large_image' }],
       ['meta', { name: 'twitter:title', content: title }],
       ['meta', { name: 'twitter:description', content: description }],
       ['link', { rel: 'canonical', href: canonicalUrl }],
