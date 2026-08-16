@@ -1,11 +1,42 @@
 ---
 title: Supported Platforms
-description: Platforms compatible with the Servio protocol — WordPress, XenForo, Drupal, Shopify, and custom integrations.
+description: Platforms with ready-made Servio integrations — WordPress, XenForo, Drupal, Shopify, Discourse, Ghost, Moodle, NodeBB, PrestaShop, and custom sites.
 ---
 
 # Supported Platforms
 
-Goldnat works with any website that implements the Servio protocol. Several popular platforms have ready-made integrations, while custom sites can implement the protocol directly.
+Goldnat works with any website that implements the Servio protocol. Nine platforms have ready-made plugins; custom sites can implement the protocol directly.
+
+## At a Glance
+
+Most platforms offer a free plugin with read-oriented tools and a paid tier that adds write and admin actions. Tool counts below are the number of distinct tools each plugin exposes.
+
+| Platform | Free plugin | Paid tier | Browse |
+|----------|------------|-----------|--------|
+| WordPress | 5 tools | Pro (6), WooCommerce (17), Elementor | [wordpress](https://plugins.goldnat.ai/wordpress) |
+| XenForo | 7 tools | Pro — 66 tools | [xenforo](https://plugins.goldnat.ai/xenforo) |
+| Discourse | 29 tools | Moderator (Pro) | [discourse](https://plugins.goldnat.ai/discourse) |
+| Ghost | 15 tools | Members (Pro) — 21 tools | [ghost](https://plugins.goldnat.ai/ghost) |
+| Drupal | yes | — | [drupal](https://plugins.goldnat.ai/drupal) |
+| Shopify | yes | — | [shopify](https://plugins.goldnat.ai/shopify) |
+| Moodle | yes | — | [moodle](https://plugins.goldnat.ai/moodle) |
+| NodeBB | yes | — | [nodebb](https://plugins.goldnat.ai/nodebb) |
+| PrestaShop | yes | — | [prestashop](https://plugins.goldnat.ai/prestashop) |
+
+Installation guides, pricing, and the current tool list for each plugin live on [plugins.goldnat.ai](https://plugins.goldnat.ai). This page covers what you need once a plugin is installed and you are connecting the site to Goldnat.
+
+## Tool Naming
+
+Tools are namespaced by plugin tier, not by platform. A free XenForo plugin exposes `xenforo.*`; the Pro add-on exposes `xenforo_pro.*`:
+
+```
+xenforo.searchThreads
+xenforo.getThread
+xenforo_pro.createThread
+xenforo_pro.lockThread
+```
+
+When a site is connected to Goldnat, the platform prefixes each tool with the site slug, so the name you see in an allow/deny list looks like `example_com_xenforo_searchThreads`. Use that full form when writing [tool permission patterns](/features/chat#tool-permission-patterns).
 
 ## WordPress
 
@@ -19,26 +50,25 @@ Goldnat works with any website that implements the Servio protocol. Several popu
 
 ### Available Tools
 
+The free plugin exposes five read tools under `wordpress.*`:
+
 | Tool | Description |
 |------|-------------|
-| `search_posts` | Search posts by keyword, category, date |
-| `get_post` | Retrieve a single post with content |
-| `create_post` | Create a new post (draft or published) |
-| `update_post` | Edit an existing post |
-| `list_categories` | List all post categories |
-| `get_comments` | Get comments for a post |
-| `create_comment` | Add a comment to a post |
-| `get_users` | List site users (admin only) |
-| `search_media` | Search media library |
+| `wordpress.searchPosts` | Search posts by keyword |
+| `wordpress.getPost` | Retrieve a single post by ID |
+| `wordpress.searchPages` | Search pages by keyword |
+| `wordpress.getPage` | Retrieve a single page by ID |
+| `wordpress.getCurrentUser` | Identify the authenticated user |
+
+Content creation and media uploads are in the Pro plugin. WooCommerce and Elementor ship as separate extensions with their own tools — see the [WordPress plugin page](https://plugins.goldnat.ai/wordpress).
 
 ### Setup Steps
 
 1. Install the plugin from the WordPress plugin directory.
 2. Activate it in wp-admin > Plugins.
-3. Go to Settings > Servio.
-4. Choose which content types to expose as tools.
-5. Configure authentication (generate Bearer tokens per user, or enable OAuth).
-6. Save. The manifest is now live at `/.well-known/servio.json`.
+3. Go to Settings > AI Connect to find your manifest URL and OAuth client definitions.
+4. Copy the manifest URL into Goldnat (or any MCP client).
+5. Approve access through the OAuth screen on your site.
 
 ## XenForo
 
@@ -52,20 +82,21 @@ Goldnat works with any website that implements the Servio protocol. Several popu
 
 ### Available Tools
 
+The free add-on exposes read tools under `xenforo.*`:
+
 | Tool | Description |
 |------|-------------|
-| `search_threads` | Search forum threads with filters |
-| `get_thread` | Retrieve a thread with its posts |
-| `create_thread` | Start a new thread in a forum |
-| `create_post` | Reply to a thread |
-| `get_user` | Look up a user profile |
-| `list_forums` | List all forum categories |
-| `get_thread_poll` | Get poll data from a thread |
-| `search_users` | Search users by name or email |
+| `xenforo.searchThreads` | Search forum threads with filters |
+| `xenforo.getThread` | Retrieve a thread with its posts |
+| `xenforo.searchPosts` | Search posts across the forum |
+| `xenforo.getPost` | Retrieve a single post |
+| `xenforo.getCurrentUser` | Identify the authenticated user |
+
+The Pro add-on adds write and moderation tools under `xenforo_pro.*` — thread and post creation and editing, locking, moving, tagging, polls, reactions, conversations, attachments, alerts, and node administration. See the [XenForo plugin page](https://plugins.goldnat.ai/xenforo) for the full list.
 
 ### Setup Steps
 
-1. Download the AI Connect addon.
+1. Download the add-on.
 2. Upload via Admin > Add-ons > Install/upgrade from archive.
 3. Configure exposed tools in Admin > AI Connect.
 4. Set up authentication.
@@ -112,15 +143,24 @@ Goldnat works with any website that implements the Servio protocol. Several popu
 
 ### Available Tools
 
+Fourteen tools under `shopify.*`, covering catalogue, orders, fulfilment, and reporting:
+
 | Tool | Description |
 |------|-------------|
-| `search_products` | Search products by title, type, vendor |
-| `get_product` | Retrieve product details with variants |
-| `list_collections` | List product collections |
-| `get_orders` | Retrieve recent orders |
-| `get_order` | Get a specific order by ID |
-| `get_inventory` | Check inventory levels |
-| `list_customers` | List customers |
+| `shopify.searchProducts` | Search products |
+| `shopify.getProduct` | Retrieve product details |
+| `shopify.getCollections` | List product collections |
+| `shopify.searchOrders` | Search orders |
+| `shopify.getOrder` | Get a specific order |
+| `shopify.createOrder` | Create an order |
+| `shopify.fulfillOrder` | Mark an order fulfilled |
+| `shopify.cancelOrder` | Cancel an order |
+| `shopify.refundOrder` | Refund an order |
+| `shopify.updateInventory` | Adjust inventory levels |
+| `shopify.getCustomer` | Retrieve a customer |
+| `shopify.createDiscount` | Create a discount |
+| `shopify.getAnalytics` | Retrieve store analytics |
+| `shopify.getShopInfo` | Retrieve shop configuration |
 
 ### Setup Steps
 
@@ -187,13 +227,12 @@ app.post('/api/servio/tools/:toolName', authenticate, (req, res) => {
 });
 ```
 
-## Coming Soon
+## Roadmap
 
-The following platforms are on the Servio integration roadmap:
+Not yet available:
 
-- **Ghost** — blog platform
-- **Discourse** — forum platform
-- **WooCommerce** — e-commerce (via WordPress plugin extension)
 - **Magento** — enterprise e-commerce
 - **MediaWiki** — wiki platform
 - **Joomla** — CMS platform
+
+Ghost, Discourse, Moodle, NodeBB, and PrestaShop have shipped — see the table above. WooCommerce ships as a WordPress extension rather than a standalone plugin.

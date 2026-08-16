@@ -93,7 +93,7 @@ Chat is interactive — you send a message, get a response. Agents are autonomou
 
 ### Can agents post content to my site?
 
-Yes, if the agent has access to write tools (e.g., `create_post`, `update_post`) and those tools are not on the deny list. We recommend testing with read-only access first.
+Yes, if the agent has access to write tools (for example the Pro write tools on your platform) and those tools are not on the deny list. We recommend testing with read-only access first.
 
 ### How do I stop a running agent?
 

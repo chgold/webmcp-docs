@@ -24,7 +24,7 @@ If you have not already connected your forum:
 
 1. Go to **Sites** > **Add Site**.
 2. Enter the forum URL and paste your API token.
-3. Verify the connection — you should see tools like `search_threads`, `get_thread`, etc.
+3. Verify the connection — you should see tools like `xenforo.searchThreads`, `xenforo.getThread`, etc.
 
 ## Step 2: Create the Agent
 
@@ -80,8 +80,8 @@ For each thread, output:
 3. Click the active run to watch it in real time.
 
 You will see the agent:
-1. Call `search_threads` with parameters for the Support category and zero replies.
-2. Call `get_thread` for each unanswered thread found.
+1. Call `xenforo.searchThreads` with parameters for the Support category and zero replies.
+2. Call `xenforo.getThread` for each unanswered thread found.
 3. Generate a Markdown report with drafted responses.
 
 ## Step 4: Review the Output

@@ -107,11 +107,11 @@ Each tool defines an action the AI can perform on your site.
 
 ### `name`
 
-A unique identifier. Convention: `sitename_action_target` (e.g., `community_search_threads`).
+A unique identifier. The convention used by the official plugins is `namespace.actionTarget` — a lowercase namespace, a dot, then a camelCase verb and object. For example `xenforo.searchThreads`, `wordpress.getPost`, `shopify.createOrder`.
 
-- Use lowercase with underscores
-- Keep it descriptive and unique
-- The platform prefixes this with the site identifier to avoid collisions across sites
+- Namespace by plugin tier, not just platform: the free XenForo add-on uses `xenforo.*` and the Pro add-on uses `xenforo_pro.*`
+- Keep the action descriptive and unique within the namespace
+- The platform prefixes the whole name with the site identifier to avoid collisions across sites, so `xenforo.searchThreads` on `example.com` is addressed as `example_com_xenforo_searchThreads`
 
 ### `description`
 

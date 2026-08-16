@@ -147,7 +147,7 @@ Modify the system prompt to add a final step:
    Content: The full digest in Markdown format.
 ```
 
-This requires the `create_post` or `create_thread` tool to be available and not on the deny list.
+This requires the `xenforo_pro.createPost` or `xenforo_pro.createThread` tool to be available and not on the deny list.
 
 ## Optional: Webhook Notification
 

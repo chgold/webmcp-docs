@@ -17,7 +17,6 @@ export default defineConfig({
     ['meta', { name: 'theme-color', content: '#6366f1' }],
     ['meta', { property: 'og:type', content: 'website' }],
     ['meta', { property: 'og:site_name', content: 'Goldnat Docs' }],
-    ['link', { rel: 'canonical', href: HOSTNAME }],
     ['meta', { property: 'og:image', content: `${HOSTNAME}/og-image.png` }],
     ['meta', { property: 'og:image:width', content: '1200' }],
     ['meta', { property: 'og:image:height', content: '630' }],

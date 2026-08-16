@@ -27,7 +27,7 @@ Adding Servio to your site involves three steps:
 
 1. Go to **wp-admin > Settings > Servio**.
 2. The plugin auto-generates a manifest based on your site's content types.
-3. Review the available tools (e.g., `search_posts`, `get_post`, `create_post`, `list_categories`).
+3. Review the available tools (e.g., `wordpress.searchPosts`, `wordpress.getPost`, `wordpress.searchPages`).
 4. Configure authentication — the plugin supports Bearer token and OAuth.
 5. Save settings.
 
@@ -57,11 +57,11 @@ The plugin publishes the manifest at `/.well-known/servio.json` automatically. I
 
 ### Available Tools
 
-- `search_threads` — search forum threads by keyword, date, category
-- `get_thread` — retrieve a thread with its posts
-- `create_post` — reply to a thread
-- `get_user` — look up user profile information
-- `list_categories` — list forum categories
+- `xenforo.searchThreads` — search forum threads by keyword, date, category
+- `xenforo.getThread` — retrieve a thread with its posts
+- `xenforo_pro.createPost` — reply to a thread
+- `xenforo_pro.getUserProfile` — look up user profile information
+- `xenforo.searchPosts` — search posts across the forum
 
 ## Drupal
 
