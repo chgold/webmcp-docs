@@ -22,7 +22,7 @@ A webhook-triggered agent that:
 
 Ensure your forum site is connected in the vault with tools that include:
 - `xenforo.getThread` or `xenforo.getPost` — to read posts
-- `xenforo_pro.createPost` — to post translations
+- `xenforo_pro.replyToThread` — to post translations
 
 ## Step 2: Create the Agent
 
@@ -153,6 +153,6 @@ Claude Haiku 4.5 provides excellent translation quality at very low cost. Switch
 | Issue | Solution |
 |-------|----------|
 | Webhook returns 401 | Verify the webhook secret matches exactly |
-| Agent does not post the reply | Check that the `xenforo_pro.createPost` tool is not on the deny list |
+| Agent does not post the reply | Check that the `xenforo_pro.replyToThread` tool is not on the deny list |
 | Duplicate translations | Add a check in the prompt to look for existing translation replies |
 | Wrong language detected | Add explicit language detection instructions to the prompt |

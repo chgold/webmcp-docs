@@ -23,7 +23,7 @@ An agent that:
 You need two sites connected in your vault:
 
 1. **Store site** — with product search and retrieval tools
-2. **Forum/Blog site** — with tools like `xenforo_pro.createPost` or `xenforo_pro.createThread`
+2. **Forum/Blog site** — with tools like `xenforo_pro.replyToThread` or `xenforo_pro.createThread`
 
 Create a **Site Group** containing both sites:
 1. Go to **Site Groups** > **Create Group**.
@@ -91,7 +91,7 @@ RULES:
    - Round 1: Agent calls `shopify.searchProducts` to find recent changes
    - Round 2-3: Agent calls `shopify.getProduct` for details on changed items
    - Round 4: Agent generates the summary
-   - Round 5: Agent calls `xenforo_pro.createPost` to publish the update
+   - Round 5: Agent calls `xenforo_pro.replyToThread` to publish the update
 
 ## Step 4: Review the Output
 

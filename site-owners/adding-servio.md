@@ -59,8 +59,8 @@ The plugin publishes the manifest at `/.well-known/servio.json` automatically. I
 
 - `xenforo.searchThreads` — search forum threads by keyword, date, category
 - `xenforo.getThread` — retrieve a thread with its posts
-- `xenforo_pro.createPost` — reply to a thread
-- `xenforo_pro.getUserProfile` — look up user profile information
+- `xenforo_pro.replyToThread` — reply to a thread
+- `xenforo_pro.findUserByName` — look up a user by name
 - `xenforo.searchPosts` — search posts across the forum
 
 ## Drupal

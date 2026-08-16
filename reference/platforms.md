@@ -11,29 +11,29 @@ Goldnat works with any website that implements the Servio protocol. Nine platfor
 
 Most platforms offer a free plugin with read-oriented tools and a paid tier that adds write and admin actions. Tool counts below are the number of distinct tools each plugin exposes.
 
-| Platform | Free plugin | Paid tier | Browse |
+| Platform | Free plugin | Paid tiers | Browse |
 |----------|------------|-----------|--------|
 | WordPress | 5 tools | Pro (6), WooCommerce (17), Elementor | [wordpress](https://plugins.goldnat.ai/wordpress) |
-| XenForo | 7 tools | Pro — 66 tools | [xenforo](https://plugins.goldnat.ai/xenforo) |
-| Discourse | 29 tools | Moderator (Pro) | [discourse](https://plugins.goldnat.ai/discourse) |
-| Ghost | 15 tools | Members (Pro) — 21 tools | [ghost](https://plugins.goldnat.ai/ghost) |
-| Drupal | yes | — | [drupal](https://plugins.goldnat.ai/drupal) |
-| Shopify | yes | — | [shopify](https://plugins.goldnat.ai/shopify) |
-| Moodle | yes | — | [moodle](https://plugins.goldnat.ai/moodle) |
-| NodeBB | yes | — | [nodebb](https://plugins.goldnat.ai/nodebb) |
-| PrestaShop | yes | — | [prestashop](https://plugins.goldnat.ai/prestashop) |
+| XenForo | 7 tools | Pro (66) | [xenforo](https://plugins.goldnat.ai/xenforo) |
+| Discourse | 29 tools | Moderator | [discourse](https://plugins.goldnat.ai/discourse) |
+| Drupal | 27 tools | — | [drupal](https://plugins.goldnat.ai/drupal) |
+| Ghost | 15 tools | Members (21) | [ghost](https://plugins.goldnat.ai/ghost) |
+| Moodle | 13 tools | Student (17), Teacher (15) | [moodle](https://plugins.goldnat.ai/moodle) |
+| Shopify | 14 tools | — | [shopify](https://plugins.goldnat.ai/shopify) |
+| NodeBB | 7 tools | Admin (5) | [nodebb](https://plugins.goldnat.ai/nodebb) |
+| PrestaShop | 4 tools | Marketing (8) | [prestashop](https://plugins.goldnat.ai/prestashop) |
 
 Installation guides, pricing, and the current tool list for each plugin live on [plugins.goldnat.ai](https://plugins.goldnat.ai). This page covers what you need once a plugin is installed and you are connecting the site to Goldnat.
 
 ## Tool Naming
 
-Tools are namespaced by plugin tier, not by platform. A free XenForo plugin exposes `xenforo.*`; the Pro add-on exposes `xenforo_pro.*`:
+Tools are namespaced per plugin, not per platform. One platform can expose several namespaces: the free XenForo add-on ships both `xenforo.*` and `translation.*`, its Pro add-on uses `xenforo_pro.*`, and the WooCommerce extension for WordPress uses `woocommerce.*` rather than `wordpress.*`.
 
 ```
 xenforo.searchThreads
-xenforo.getThread
+translation.translate
 xenforo_pro.createThread
-xenforo_pro.lockThread
+woocommerce.searchProducts
 ```
 
 When a site is connected to Goldnat, the platform prefixes each tool with the site slug, so the name you see in an allow/deny list looks like `example_com_xenforo_searchThreads`. Use that full form when writing [tool permission patterns](/features/chat#tool-permission-patterns).
@@ -60,7 +60,7 @@ The free plugin exposes five read tools under `wordpress.*`:
 | `wordpress.getPage` | Retrieve a single page by ID |
 | `wordpress.getCurrentUser` | Identify the authenticated user |
 
-Content creation and media uploads are in the Pro plugin. WooCommerce and Elementor ship as separate extensions with their own tools — see the [WordPress plugin page](https://plugins.goldnat.ai/wordpress).
+Content creation and media uploads are in the Pro plugin (6 tools). WooCommerce ships as a separate extension with 17 tools under its own `woocommerce.*` namespace, and Elementor as a further extension — see the [WordPress plugin page](https://plugins.goldnat.ai/wordpress).
 
 ### Setup Steps
 
@@ -82,17 +82,19 @@ Content creation and media uploads are in the Pro plugin. WooCommerce and Elemen
 
 ### Available Tools
 
-The free add-on exposes read tools under `xenforo.*`:
+The free add-on exposes seven tools across two namespaces:
 
 | Tool | Description |
 |------|-------------|
-| `xenforo.searchThreads` | Search forum threads with filters |
+| `xenforo.searchThreads` | Search forum threads |
 | `xenforo.getThread` | Retrieve a thread with its posts |
 | `xenforo.searchPosts` | Search posts across the forum |
 | `xenforo.getPost` | Retrieve a single post |
 | `xenforo.getCurrentUser` | Identify the authenticated user |
+| `translation.translate` | Translate text |
+| `translation.getSupportedLanguages` | List available translation languages |
 
-The Pro add-on adds write and moderation tools under `xenforo_pro.*` — thread and post creation and editing, locking, moving, tagging, polls, reactions, conversations, attachments, alerts, and node administration. See the [XenForo plugin page](https://plugins.goldnat.ai/xenforo) for the full list.
+The Pro add-on adds 66 tools under `xenforo_pro.*` — thread and post creation and editing, locking, moving, tagging, polls, reactions, conversations, attachments, alerts, and node administration. See the [XenForo plugin page](https://plugins.goldnat.ai/xenforo) for the full list.
 
 ### Setup Steps
 
