@@ -5,8 +5,9 @@
   "main": "index.js",
   "scripts": {
     "docs:dev": "vitepress dev",
-    "docs:build": "vitepress build",
-    "docs:preview": "vitepress preview"
+    "docs:build": "npm run verify:tools && vitepress build",
+    "docs:preview": "vitepress preview",
+    "verify:tools": "node scripts/verify-tool-names.mjs"
   },
   "keywords": [],
   "author": "",
