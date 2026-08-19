@@ -35,6 +35,12 @@ export default defineConfig({
       .replace(/\.md$/, '')
 
     pageData.frontmatter.head ??= []
+
+    if (/AGENTS/i.test(pageData.relativePath)) {
+      pageData.frontmatter.head.push(['meta', { name: 'robots', content: 'noindex, nofollow' }])
+      return
+    }
+
     pageData.frontmatter.head.push(
       ['meta', { property: 'og:title', content: title }],
       ['meta', { property: 'og:description', content: description }],
