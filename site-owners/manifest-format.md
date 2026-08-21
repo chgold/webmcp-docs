@@ -242,6 +242,32 @@ This is intentionally **not** JSONPath. There are no wildcards, filters or
 expressions, because a selection Goldnat cannot audit is a selection it cannot
 trust.
 
+#### Which day is being collected
+
+Goldnat resolves the period in **the user's own timezone**, not yours and not
+UTC. Someone in Auckland and someone in Los Angeles will each be asked for their
+own 20th of August, at different real-world moments.
+
+Do not work out "yesterday" yourself — you would be guessing on a different
+clock. Interpolate the resolved period into your `args` instead:
+
+```json
+"args": {
+  "from": "{{periodStart}}",
+  "to": "{{periodEnd}}",
+  "timezone": "{{timezone}}"
+}
+```
+
+| Placeholder | Value |
+|---|---|
+| `{{periodStart}}` | The calendar date being collected, `YYYY-MM-DD` |
+| `{{periodEnd}}` | Same date for daily metrics; the period's last date otherwise |
+| `{{timezone}}` | The user's IANA zone, e.g. `Pacific/Auckland` |
+
+Placeholders work anywhere inside `args`, including nested objects and arrays.
+Your tool should return figures for exactly that date, interpreted in that zone.
+
 #### Requirements
 
 Your tool must return **valid JSON**, and the value at `valuePath` must reduce to
