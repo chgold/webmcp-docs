@@ -181,6 +181,94 @@ A token provided by Goldnat during the Directory registration process. Add it to
 "verification": "wmcp_verify_a1b2c3d4e5f6"
 ```
 
+### `brief`
+
+Declares which of your tools produce numbers worth tracking over time. Sites that
+publish this section get their metrics collected on a schedule **without an AI
+model being involved at all** — Goldnat calls the tool you name and reads the
+value at the path you specify.
+
+That matters for accuracy. When a model has to interpret a tool response to find
+a number, the number is only as reliable as the interpretation. A declared metric
+skips that step entirely, so the figure that reaches your dashboard is the figure
+your API returned.
+
+```json
+"brief": {
+  "metrics": [
+    {
+      "key": "sales.revenue.daily",
+      "tool": "getSalesSummary",
+      "args": { "period": "yesterday" },
+      "valuePath": "data.totals.revenue",
+      "unit": "ILS",
+      "granularity": "day"
+    }
+  ]
+}
+```
+
+| Field | Required | Meaning |
+|---|---|---|
+| `key` | yes | Canonical metric name. Must match `^[a-z0-9]+(\.[a-z0-9_]+)+$` |
+| `tool` | yes | The tool's `name` **as it appears in your manifest**, without any site prefix |
+| `args` | no | Fixed arguments passed to the tool on every call |
+| `valuePath` | yes | Dotted path to the number inside the tool's response |
+| `unit` | no | Display unit, e.g. `ILS`, `USD`, `count` |
+| `granularity` | no | `hour`, `day`, `week` or `month`. Defaults to `day` |
+
+#### Canonical keys
+
+`key` is deliberately platform-neutral so a shop, a forum and a course platform
+can feed the same dashboard slot. Use an existing key where one fits:
+
+| Key | Meaning |
+|---|---|
+| `sales.revenue.daily` | Revenue for one day |
+| `sales.orders.daily` | Order count for one day |
+| `community.unanswered.count` | Threads or tickets still without a reply |
+| `content.published.daily` | Items published in a day |
+
+#### `valuePath`
+
+A dotted path supporting object keys and numeric array indexes:
+
+```
+data.totals.revenue     → { "data": { "totals": { "revenue": 2340 } } }
+rows.0.count            → { "rows": [ { "count": 12 } ] }
+```
+
+This is intentionally **not** JSONPath. There are no wildcards, filters or
+expressions, because a selection Goldnat cannot audit is a selection it cannot
+trust.
+
+#### Requirements
+
+Your tool must return **valid JSON**, and the value at `valuePath` must reduce to
+a finite number. These are accepted:
+
+```
+2340          "2340"          "$2,340.00"
+```
+
+These are not, and the metric is dropped rather than stored as zero:
+
+```
+"no sales"    null    {}    NaN
+```
+
+A `brief` section that fails validation is ignored in full. Goldnat will not act
+on part of a spec it could not parse, so a typo costs you collection rather than
+producing a silently wrong series.
+
+#### What it looks like to the user
+
+Collected metrics appear on the user's dashboard each morning. A change is only
+ever shown against a period that was actually collected — if last week's value
+was never recorded, the value is displayed on its own with no trend indicator.
+Daily metrics are compared against the **same weekday** a week earlier, since
+day-over-day movement mostly reflects the day of the week.
+
 ## Complete Example
 
 ```json
