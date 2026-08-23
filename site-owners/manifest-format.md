@@ -295,6 +295,63 @@ was never recorded, the value is displayed on its own with no trend indicator.
 Daily metrics are compared against the **same weekday** a week earlier, since
 day-over-day movement mostly reflects the day of the week.
 
+#### Lists
+
+Alongside numbers, you can declare **lists** of things that need the user's
+attention — unanswered questions, orders waiting on a decision, work you have
+already handled. Each list maps an existing tool's response onto one of three
+kinds:
+
+| `type` | Meaning |
+|---|---|
+| `waiting` | Aging with no reply — set an age field so the dashboard can show "31h" |
+| `decision` | Blocked on a human choice |
+| `activity` | Something already handled, shown for reassurance |
+
+Drafts are **not** declarable here: a draft has to be written and has to name the
+call it wants published, neither of which can be read out of your existing data.
+Drafts remain something an AI agent composes.
+
+```json
+"brief": {
+  "lists": [
+    {
+      "type": "waiting",
+      "tool": "getUnansweredThreads",
+      "args": { "since": "{{periodStart}}", "timezone": "{{timezone}}" },
+      "itemsPath": "data.threads",
+      "limit": 20,
+      "fields": {
+        "title": "subject",
+        "detail": "excerpt",
+        "ageHours": "hours_open",
+        "externalRef": "thread_id"
+      }
+    }
+  ]
+}
+```
+
+| Field | Required | Meaning |
+|---|---|---|
+| `type` | yes | `waiting`, `decision` or `activity` |
+| `tool` | yes | Tool name as it appears in your manifest |
+| `args` | no | Fixed arguments; supports the same `{{…}}` placeholders |
+| `itemsPath` | yes | Dot path to the **array** in the response |
+| `limit` | no | Max rows to take, default 20, hard cap 50 |
+| `fields.title` | yes | Path within each row to the line the user reads |
+| `fields.detail` | no | Path to a longer description |
+| `fields.ageHours` | no | Path to a number of hours; a non-number is dropped |
+| `fields.externalRef` | no | Path to the item's id on your site |
+| `fields.severity` | no | Path to `info` / `warning` / `critical`; anything else becomes `info` |
+| `fields.occurredAt` | no | Path to an ISO timestamp |
+
+`fields.*` values are paths **into each array element**, not into the whole
+response. A row with no usable `title` is skipped rather than shown blank. Adding
+a new kind of list — for a new platform or a new use case — is another entry in
+this array, **not a new manifest version**: the shape here is meant to absorb
+future needs without another round of plugin updates.
+
 ## Complete Example
 
 ```json
