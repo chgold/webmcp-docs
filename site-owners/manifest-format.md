@@ -352,6 +352,34 @@ a new kind of list — for a new platform or a new use case — is another entry
 this array, **not a new manifest version**: the shape here is meant to absorb
 future needs without another round of plugin updates.
 
+#### `agentWork` — pacing an AI agent through a busy list
+
+An optional block on a list that tells an AI agent how to work **through** it.
+When a site is busy, handing a model the whole list at once makes it lose focus;
+`agentWork` lets Goldnat feed the agent a few items at a time and enforce that
+pace in code, not by asking the model to behave.
+
+```json
+{
+  "type": "waiting",
+  "tool": "getOpenTickets",
+  "itemsPath": "data.tickets",
+  "fields": { "title": "subject", "externalRef": "id" },
+  "agentWork": { "workUnit": "ticket", "batchSize": 5 }
+}
+```
+
+| Field | Required | Meaning |
+|---|---|---|
+| `workUnit` | no | What one item is, in your terms — `ticket`, `conversation`, `email`, `thread`. Default `item`. |
+| `batchSize` | no | How many items the agent is handed per batch. Default `5`, max `25`. |
+
+The agent receives one batch, works it, then asks for the next until the list is
+exhausted. The size is enforced by the platform — the agent cannot request more.
+Omit `agentWork` entirely and the agent may take the whole list at once, which is
+fine for short lists. Set a small `batchSize` (even `1`, for one-conversation-at-
+a-time focus) on high-volume lists like support inboxes.
+
 ## Complete Example
 
 ```json
