@@ -98,7 +98,16 @@ When using BYOK with agents:
 - Tool execution (outgoing HTTP calls to sites) is still managed by the platform
 - The agent run still appears in your run history with token counts
 
-For workspace agents, assign a workspace-level API key in the agent configuration dialog.
+### Who Pays for an Agent Run
+
+- **Personal agents** — charged to the agent's **creator**, not whoever triggered the run. If the creator has a personal BYOK key, the run uses that key and consumes no credits. Otherwise it uses platform credits from the creator's balance.
+- **Workspace agents** — assign a workspace-level API key in the agent configuration dialog. When a workspace key is set, the agent uses it and no platform credits are consumed. Without one, the run draws on the workspace's credit balance.
+
+This matters for shared and scheduled agents: a scheduled agent that runs every morning bills its **creator** (or uses the creator's/workspace's BYOK key) on every run, regardless of who set up the schedule.
+
+::: tip
+For frequently-run agents (scheduled or webhook-triggered), a BYOK key keeps costs on your provider account and off your platform credit balance.
+:::
 
 ## Cost Comparison
 

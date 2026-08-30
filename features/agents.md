@@ -13,9 +13,11 @@ An agent consists of:
 
 - **Name** — a descriptive identifier
 - **System prompt** — instructions that define what the agent should do
-- **Model** — the AI model to use (e.g., Claude Sonnet 4.6)
+- **Goals** — reusable objectives the agent pursues, each tied to a specific site (see [Goals & Capabilities](/features/capabilities))
+- **Model** — the AI model to use
 - **Sites** — which connected sites the agent can interact with
 - **Max rounds** — the maximum number of AI-tool interaction loops (default: 5)
+- **Write permissions** — which write tools the agent is allowed to run (none by default)
 - **Trigger type** — how the agent is started (manual, scheduled, or webhook)
 - **API key** — which AI key to use (platform credits or a specific BYOK key)
 
@@ -41,6 +43,12 @@ The template gallery offers pre-built agents for common scenarios:
 - **Support Responder** — drafts replies to support threads
 
 Select a template, customize the prompt and sites, and save.
+
+## Goals
+
+Instead of describing every step in the system prompt, you can attach **goals** — reusable objectives such as "reply to unanswered threads" or "review new posts for tone." Open the goal picker in the agent builder to choose ready-made goals or create your own.
+
+Each goal is tied to the site it was built for, and the agent only uses a goal on that site. This keeps a goal meant for your forum from being applied to your store. See [Goals & Capabilities](/features/capabilities) for the full guide.
 
 ## Trigger Types
 
@@ -131,15 +139,32 @@ To control costs:
 - Use cheaper models for simple monitoring tasks
 - Use BYOK keys for high-frequency agents
 
+## Write Permissions
+
+By default, an agent is **read-only**: it can look things up but cannot create, edit, or delete anything on your sites. Write tools (like posting a reply, editing a page, or deleting an item) are blocked until you explicitly grant them.
+
+To let an agent make changes:
+
+1. In the agent builder, open the **Write permissions** section.
+2. Click **Load tools** to fetch the tools available on the agent's sites.
+3. Select the specific write tools the agent is allowed to run.
+4. Save the agent.
+
+Only the tools you select are permitted. Every other write tool stays blocked, even if the agent's task seems to call for it. Leaving the list empty keeps the agent read-only.
+
+::: warning
+Write tools change content on your sites. Grant only the tools the agent's task actually needs — for example, allow "reply to thread" without allowing "delete thread."
+:::
+
+### Why an Agent Might Not Be Writing
+
+If an agent that should be posting or editing isn't making changes, check its **Write permissions**. An agent with no granted write tools will read and plan but never write. Grant the specific tools it needs and run it again.
+
 ## Safety
 
 ### Principle of Least Privilege
 
-Give agents access only to the sites and tools they need. Use site groups with deny lists to block destructive operations.
-
-### Human-in-the-Loop
-
-For critical actions, design your agent prompt to output a plan rather than execute directly. Review the plan in the run timeline before creating a follow-up agent that executes.
+Give agents access only to the sites, goals, and write tools they need. Combine site groups, goals, and write permissions to keep each agent scoped to its task.
 
 ### Max Rounds as a Safety Net
 

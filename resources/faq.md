@@ -93,7 +93,23 @@ Chat is interactive — you send a message, get a response. Agents are autonomou
 
 ### Can agents post content to my site?
 
-Yes, if the agent has access to write tools (for example the Pro write tools on your platform) and those tools are not on the deny list. We recommend testing with read-only access first.
+Yes, but only after you grant it. Agents are read-only by default; write tools (posting, editing, deleting) are blocked until you select them in the agent's **Write permissions**. Grant only the specific write tools the task needs. See [Autonomous Agents](/features/agents#write-permissions).
+
+### Why isn't my agent writing to my site?
+
+The most common reason is that no write tools are granted. Open the agent, expand **Write permissions**, load the tools, select the ones it needs, and save. An agent with no granted write tools will read and plan but never write.
+
+### What does the "New write capability on a connected site" alert mean?
+
+It means an agent encountered a write tool on one of your sites that no agent has been granted permission to use. Nothing was changed — the tool was blocked. The alert simply lets an admin decide whether that capability should ever be granted. It's a normal part of the default-deny safety model.
+
+### What are goals, and how do agents use them?
+
+Goals are reusable objectives (like "reply to unanswered threads") that you attach to an agent. Each goal is tied to a specific site, and an agent only uses a goal on the site it belongs to. See [Goals & Capabilities](/features/capabilities).
+
+### How do I edit or delete a goal I created?
+
+In the goal picker, use the edit or delete action on a goal marked **Yours**. You can rename it, rebuild its steps, or remove it. Shared goals provided by the platform can't be edited or deleted.
 
 ### How do I stop a running agent?
 

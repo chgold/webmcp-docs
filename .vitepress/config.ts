@@ -90,9 +90,11 @@ export default defineConfig({
           text: 'Features',
           items: [
             { text: 'Chat Interface', link: '/features/chat' },
+            { text: 'Dashboard & Morning Brief', link: '/features/dashboard' },
             { text: 'Site Vault', link: '/features/vault' },
             { text: 'Site Groups', link: '/features/groups' },
             { text: 'Autonomous Agents', link: '/features/agents' },
+            { text: 'Goals & Capabilities', link: '/features/capabilities' },
             { text: 'Team Workspaces', link: '/features/workspaces' },
             { text: 'File Manager', link: '/features/files' },
             { text: 'Artifacts', link: '/features/artifacts' },

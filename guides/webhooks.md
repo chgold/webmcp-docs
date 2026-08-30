@@ -118,6 +118,45 @@ After triggering:
 2. The most recent run should show **Triggered by: Webhook**.
 3. Click to see the full timeline, including the payload received.
 
+## Polling for the Result
+
+The trigger request returns immediately — the agent runs in the background. The response includes the run ID and a resume token you can use to poll for the result:
+
+```json
+{ "ok": true, "runId": "...", "resumeToken": "..." }
+```
+
+Poll the run with a `GET` request, passing the resume token:
+
+```bash
+curl "https://goldnat.ai/api/webhooks/runs/<run-id>?token=<resume-token>"
+```
+
+The response reports the run's progress:
+
+| Field | Description |
+|-------|-------------|
+| `status` | `pending`, `running`, `done`, or `failed` |
+| `output` | The agent's result text (present once `done`) |
+| `error` | The error message (present if `failed`) |
+| `terminationReason` | Why the run ended: `completed`, `round_limit`, `billing_failed`, `cancelled`, or `error` |
+| `roundsUsed` | How many rounds the agent used |
+| `roundsMax` | The round limit configured on the agent |
+
+### Full Transcript
+
+Add `?include=transcript` to also receive the step-by-step history of the run (each round's tool calls, results, and reasoning):
+
+```bash
+curl "https://goldnat.ai/api/webhooks/runs/<run-id>?token=<resume-token>&include=transcript"
+```
+
+### Polling Notes
+
+- **Poll at a reasonable pace.** Polling too frequently returns `429 Too Many Requests` — wait a moment between checks.
+- **Results expire after 7 days.** After that the endpoint returns `410 Gone`; retrieve the result before then.
+- Keep the resume token private — it grants access to the run's result.
+
 ## Example: Trigger Agent from GitHub Push
 
 ### 1. Create the Agent

@@ -88,6 +88,26 @@ All API errors include a `code` field that identifies the specific error type. U
 | `RUN_NOT_FOUND` | 404 | No run found with the provided ID | Check the run ID |
 | `RUN_NOT_CANCELLABLE` | 400 | The run is not in a cancellable state (already completed or failed) | No action needed |
 | `AGENT_ALREADY_RUNNING` | 409 | The agent already has an active run | Wait for the current run to finish |
+| `GOAL_SITE_MISMATCH` | 400 | A goal references a site that is not one of the agent's sites | Only attach goals built for the agent's connected sites |
+
+## Goal Building Errors
+
+These can occur when creating a goal for a site (see [Goals & Capabilities](/features/capabilities)).
+
+| Code | HTTP Status | Description | Resolution |
+|------|-------------|-------------|------------|
+| `NO_SITES` | 400 | The chosen site is not connected to your account | Connect the site in your vault first |
+| `NO_TOOLS` | 400 | The site currently exposes no tools to build the goal from | See the reason below and act accordingly |
+| `MODEL_UNAVAILABLE` | 409 | No AI model is available to build the goal | Ask an admin to connect an AI provider, or choose an existing goal |
+| `BUILD_EMPTY` | 422 | The goal needs tools this site does not offer | Adjust the goal, or use a site that exposes the needed tools |
+
+When a `NO_TOOLS` error is returned, it includes a `reason` explaining why:
+
+| Reason | Meaning | Resolution |
+|--------|---------|------------|
+| `auth_failed` | The connection to the site has expired or is no longer valid | Reconnect the site, then try again |
+| `unreachable` | The site could not be reached (it may be down or blocked by a network filter) | Try again later |
+| `empty_manifest` | The site is connected but currently exposes no tools | Nothing to build from on this site right now |
 
 ## Webhook Errors
 
