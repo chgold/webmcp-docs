@@ -5,7 +5,7 @@ description: Design safe, efficient, and reliable autonomous agents — permissi
 
 # Agent Best Practices
 
-Autonomous agents run without human oversight. A well-designed agent is safe, efficient, and predictable. A poorly designed one can waste credits, make unwanted changes, or fail silently. This guide covers best practices for building reliable agents.
+Autonomous agents run without human oversight. A well-designed agent is safe, efficient, and predictable. A poorly designed one can run up your AI provider bill, make unwanted changes, or fail silently. This guide covers best practices for building reliable agents.
 
 ## Principle of Least Privilege
 
@@ -24,7 +24,7 @@ Before deploying a scheduled agent:
 1. **Run manually first** — click "Run Now" and review the full timeline
 2. **Check tool calls** — verify the agent is calling the right tools with correct parameters
 3. **Review output** — ensure the agent produces the expected result
-4. **Check credit usage** — confirm the cost matches expectations
+4. **Check token usage** — confirm the provider cost matches expectations
 5. **Test edge cases** — what happens when there is no data? When the site is slow?
 
 Only enable scheduling or webhooks after manual runs succeed consistently.
@@ -69,25 +69,25 @@ The `maxRounds` setting controls how many AI-tool interaction loops the agent ca
 Start conservative and increase if the agent runs out of rounds. You can see in the run timeline whether the agent finished naturally or was cut off by the round limit.
 
 ::: warning
-Every round costs credits. An agent with `maxRounds: 20` using a premium model on a frequent schedule can consume credits rapidly. Always monitor costs during the first few runs.
+Every round is another AI call billed to your own provider account. An agent with `maxRounds: 20` using a premium model on a frequent schedule adds up fast. Always monitor costs during the first few runs.
 :::
 
-## Monitoring Agent Credit Consumption
+## Monitoring Agent Token Usage
 
-1. **Check the run detail** — each run shows total credits consumed
-2. **Use Analytics** — filter by date to see agent-driven costs
-3. **Set monthly limits** — use auto top-up monthly limits to cap spending
+1. **Check the run detail** — each run shows the tokens it consumed
+2. **Use Analytics** — filter by date to see agent-driven usage
+3. **Set provider budgets** — configure spend limits and alerts in your AI provider's dashboard
 4. **Compare model costs** — a monitoring agent rarely needs the most expensive model
 
 ### Cost Estimation
 
-Before deploying, estimate costs:
+Before deploying, estimate costs from your provider's per-million-token rates:
 
 ```
-Per run: ~2K input tokens + ~1K output tokens = ~3K tokens
-Model: Claude Haiku (0.25 credits/1K input, 1.25 credits/1K output)
-Cost per run: (2 * 0.25) + (1 * 1.25) = 1.75 credits
-Schedule: hourly = 24 runs/day = 42 credits/day = ~1,260 credits/month
+Per run: ~2K input tokens + ~1K output tokens
+Model: Claude Haiku 4.5 ($0.80/MTok input, $4/MTok output)
+Cost per run: (0.002 * $0.80) + (0.001 * $4) = ~$0.0056
+Schedule: hourly = 24 runs/day = ~$0.13/day = ~$4/month
 ```
 
 ## Handling Agent Failures
@@ -99,7 +99,7 @@ Schedule: hourly = 24 runs/day = 42 credits/day = ~1,260 credits/month
 | Site unreachable | Network issue or site downtime | Agent retries automatically on next scheduled run |
 | Token expired | Vault token needs update | Check vault for expired tokens; set up OAuth auto-refresh |
 | Max rounds hit | Task needs more iterations | Increase `maxRounds` or simplify the prompt |
-| No credits | Balance depleted | Enable auto top-up or use BYOK |
+| Provider key rejected | Key missing, revoked, or expired | Reconnect your AI provider key in **Settings** |
 | Tool error | Site returned an error | Review the tool result in the run timeline; fix prompt or data |
 
 ### Reviewing Failed Runs
@@ -127,7 +127,7 @@ Before deploying an agent to production:
 - [ ] Tested with manual runs (at least 3 successful runs)
 - [ ] Tool deny list configured to block unwanted operations
 - [ ] Max rounds set to a reasonable value
-- [ ] Credit cost estimated and within budget
+- [ ] Provider cost estimated and within budget
 - [ ] Error handling tested (what happens if no data? if site is down?)
 - [ ] Webhook secret configured (if applicable)
 - [ ] Notifications set up for failures (workspace agents)

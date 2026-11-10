@@ -53,12 +53,12 @@ In a single chat message, the AI can make multiple tool calls via the agentic lo
 
 Agents respect the same outgoing rate limit. An agent that needs to make many calls to a single site will pace itself automatically.
 
-## Credit-Based Limits
+## Provider Key Requirement
 
-Beyond rate limits, your credit balance acts as a soft limit:
+Beyond rate limits, AI interactions require a connected AI provider key (BYOK):
 
-- **Zero balance**: All AI interactions are blocked until credits are purchased or replenished
-- **Insufficient balance**: The specific request is blocked if the estimated cost exceeds your balance
+- **No key connected**: AI interactions are blocked (`INSUFFICIENT_CREDITS`, 402) until you connect your own API key in **Settings** — see the [BYOK Guide](/guides/byok).
+- **Provider-side limits**: Your own provider's rate and spend limits apply to calls made with your key.
 
 ## Webhook Rate Limits
 

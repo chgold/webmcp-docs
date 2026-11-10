@@ -135,11 +135,10 @@ Since the store API does not support date filtering:
    yesterday).
 ```
 
-### Credit Budget Management
+### Budget Management
 
-Monitor your agent's credit usage:
+Monitor your agent's token usage in **Analytics** (your provider bills you directly for it under BYOK):
 
-- **Target**: under 5 credits per run with Claude Haiku
 - **If too high**: reduce max rounds, simplify the prompt, or limit the product count
 - **If too low**: the agent is not doing enough work; increase the product limit or add more detail
 
@@ -152,10 +151,7 @@ Update the prompt for scenarios like:
 
 ## Cost Estimate
 
-Using Claude Haiku with 6 max rounds:
-- Per run: approximately 3-8 credits
-- Daily schedule: 3-8 credits/day
-- Monthly: 90-240 credits/month
+Using Claude Haiku with 6 max rounds, a run uses a modest number of tokens (roughly a few thousand input + output). Under BYOK you pay your provider directly at Haiku's rates — see the per-model rates in the [BYOK Guide](/guides/byok). Choosing Haiku over a larger model is the biggest lever on cost.
 
 ## Variations
 

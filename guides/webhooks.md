@@ -139,9 +139,22 @@ The response reports the run's progress:
 | `status` | `pending`, `running`, `done`, or `failed` |
 | `output` | The agent's result text (present once `done`) |
 | `error` | The error message (present if `failed`) |
-| `terminationReason` | Why the run ended: `completed`, `round_limit`, `billing_failed`, `cancelled`, or `error` |
+| `terminationReason` | Why the run ended: `completed`, `round_limit`, `billing_failed`, `cancelled`, `prompt_too_large`, `scope_mismatch`, or `error` |
 | `roundsUsed` | How many rounds the agent used |
 | `roundsMax` | The round limit configured on the agent |
+
+### Narrowing a single run to one site or a few tools
+
+An agent connected to many sites sends every site's tool definitions with each request. For a run that only needs one site (for example, testing one plugin), add these optional fields to the payload:
+
+| Field | Type | Effect |
+|---|---|---|
+| `site_url` (or `site_urls`) | string or array | Only these sites' tools are loaded for this run. Must be sites the agent already has. |
+| `allowed_tools` (or `tool_whitelist`) | array of strings | Only these site tools are offered, and any other site tool is refused for this run. An entry can be the full tool name, the name as the site declares it (e.g. `xenforo.pro.getThread`), or a prefix ending in `*`. Up to 500 entries. |
+
+The scope can only narrow what the agent already has. A `site_url` the agent does not have is refused at once with HTTP 422, `code: SITE_NOT_ALLOWED`, and `agentSites` listing the sites the agent does have. Requested tools that the site does not expose are named to the agent as missing. If none of `allowed_tools` matches, the run ends with `terminationReason: scope_mismatch`.
+
+If a run's prompt (system prompt + tool definitions + history) cannot fit the model, it ends with `terminationReason: prompt_too_large`, and `error` shows the token count and what the prompt is made of, per site.
 
 ### Full Transcript
 

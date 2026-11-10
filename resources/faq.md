@@ -1,6 +1,6 @@
 ---
 title: FAQ
-description: Frequently asked questions about Goldnat — accounts, billing, credits, chat, agents, security, and integrations.
+description: Frequently asked questions about Goldnat — accounts, billing, AI provider keys, chat, agents, security, and integrations.
 ---
 
 # Frequently Asked Questions
@@ -27,41 +27,41 @@ Contact **support@goldnat.ai** with your account email. Your account enters a 30
 
 ### What payment methods are accepted?
 
-Credit and debit cards via Stripe. We support Visa, Mastercard, American Express, and other major card networks.
+Credit and debit cards and other methods offered at checkout, processed by Paddle.
 
 ### Is there a free trial?
 
-New accounts receive 1,850 welcome credits at no cost. This lets you try the platform before purchasing a plan. The free tier is always available with no time limit.
+The Free tier is always available with no time limit, so you can explore the platform before subscribing. New accounts receive a sign-up gift of goldnat credits to try the chat; for regular use, connect your own AI provider key — see [How AI Usage Is Paid](/getting-started/understanding-credits).
 
 ### Can I get a refund?
 
-Individual credit purchases can be refunded from the Billing page (the credits are deducted from your balance). For subscription refunds, contact **support@goldnat.ai** within 7 days of the charge.
+For subscription refunds, contact **support@goldnat.ai** within 7 days of the charge. AI usage is billed by your own provider, so refunds for that are handled by the provider.
 
 ### What happens if my payment fails?
 
 Your subscription enters a past-due state. You have 7 days to update your payment method before being downgraded to Free.
 
-### Do unused monthly credits roll over?
+### Does a subscription include AI usage?
 
-No. Monthly allocation credits expire at the end of each billing cycle. Purchased credits (bought as packages) never expire.
+No. A plan unlocks platform features such as agents, scheduling, webhooks, and workspaces. AI usage is billed by your AI provider against the key you connect in **Settings**, or paid with goldnat credits where they apply. Some plans include monthly credits.
 
-## Credits
+## Paying for AI Usage
 
-### How are credits calculated?
+### How do I pay for AI usage?
 
-The platform calculates the provider cost of the call in USD from the model's per-token rates, then converts that to credits with a markup. Rates vary by model — see [Understanding Credits](/getting-started/understanding-credits).
+You connect your own AI provider API key in **Settings**, and every AI call runs against your provider account at that provider's published rates. Without a key, goldnat credits from your sign-up gift or plan can pay for the models they cover. See the [BYOK Guide](/guides/byok).
 
-### Why did a message cost more credits than expected?
+### Why did a message cost more than expected?
 
-Credit cost scales with conversation length because previous messages are included as context (input tokens). Longer conversations cost more per message. Tool call results also add to the token count.
+Cost scales with conversation length because previous messages are sent along as context (input tokens). Longer conversations cost more per message, and tool results add to the token count too.
 
-### What happens when I run out of credits?
+### What happens if I haven't connected an API key?
 
-AI interactions are blocked. You can still browse the UI, manage settings, and view history. Purchase credits or enable auto top-up to resume.
+You can use goldnat credits for the models they cover, while you have a balance. Other models, and everything once credits run out, need a key — the chat tells you what to connect. Everything else still works: you can browse the UI, manage settings, connect sites, and review history.
 
-### Do tool calls cost extra credits?
+### Do tool calls cost extra?
 
-Tool calls themselves are free. However, tool results are fed back to the AI as input tokens, which increases the token count and therefore the credit cost of the response.
+Goldnat doesn't charge for tool calls. Tool results are fed back to the model as input tokens, though, so they do raise the token count your provider bills you for.
 
 ## Chat
 
@@ -113,11 +113,11 @@ In the goal picker, use the edit or delete action on a goal marked **Yours**. Yo
 
 ### How do I stop a running agent?
 
-Go to the run detail page and click **Cancel Run**. The agent finishes the current step and stops. Credits consumed up to that point are still deducted.
+Go to the run detail page and click **Cancel Run**. The agent finishes the current step and stops. Tokens already sent to your AI provider before the stop are still billed by that provider.
 
 ### Why did my agent fail?
 
-Check the run timeline for the error step. Common causes: expired token, site unreachable, max rounds hit, insufficient credits. See [Troubleshooting](/resources/troubleshooting).
+Check the run timeline for the error step. Common causes: expired token, site unreachable, max rounds hit, or a missing or rejected AI provider key. See [Troubleshooting](/resources/troubleshooting).
 
 ### Can I run multiple agents at the same time?
 
@@ -145,19 +145,19 @@ Yes. Every tool result returned from a site is scanned for known prompt injectio
 
 ### What is BYOK?
 
-Bring Your Own Key — you can add your own AI provider API key (Anthropic, OpenAI, Google, etc.) to use instead of platform credits. You pay the provider directly.
+Bring Your Own Key — you add your own AI provider API key (Anthropic, OpenAI, Google, OpenRouter) in **Settings**, and Goldnat runs your AI calls against that account. It's the main way AI usage is paid for on the platform.
 
 ### Which providers support BYOK?
 
-Anthropic, OpenAI, Google (Gemini), OpenRouter, and Ollama (self-hosted).
+Anthropic, OpenAI, Google (Gemini) and OpenRouter. For Anthropic you can also connect your Claude subscription, and for OpenRouter you can sign in instead of pasting a key.
 
-### Is BYOK cheaper?
+### What does AI usage cost?
 
-Usually, yes. Platform credits include a markup over raw provider costs. With BYOK, you pay the provider's wholesale rates directly.
+Whatever your provider charges. Rates are published per million tokens and differ by model, so picking a cheaper model for simple work is the single biggest lever you have. See [Cost Optimization](/guides/cost-optimization).
 
-### Can I use BYOK and credits simultaneously?
+### Can I connect keys for more than one provider?
 
-Your BYOK key applies to the matching provider's models. If you use a model from a different provider, platform credits are consumed.
+Your key applies to that provider's models. To use models from another provider, connect a key for that provider as well; otherwise those models aren't available to you.
 
 ## Integrations
 

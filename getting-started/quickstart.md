@@ -14,9 +14,9 @@ This guide walks you through your first interaction with Goldnat. By the end, yo
 
 ## Step 1: Sign In
 
-Navigate to [goldnat.ai](https://goldnat.ai) and click **Sign in with Google**. After authenticating, you will land on the Dashboard.
+Navigate to [goldnat.ai](https://goldnat.ai) and click **Sign in with Google**. If your organization uses single sign-on, choose **Sign in with your organization (SSO)** instead. After authenticating, you will land on the Dashboard.
 
-New accounts receive **1,850 welcome credits** to get started at no cost.
+New accounts receive a sign-up gift of goldnat credits, so you can try the chat right away on the models credits cover. For regular use, connect your own AI provider key or subscription in **Settings**. See [How AI Usage Is Paid](/getting-started/understanding-credits).
 
 ## Step 2: Add a Site to Your Vault
 
@@ -86,6 +86,7 @@ If the AI generates a file (HTML page, code snippet, CSV, or image), it appears 
 ## What's Next
 
 - **[Connecting Sites](/getting-started/connecting-sites)** — learn about token types, OAuth, and troubleshooting
-- **[Understanding Credits](/getting-started/understanding-credits)** — how credits are consumed and how to manage costs
+- **[How AI Usage Is Paid](/getting-started/understanding-credits)** — goldnat credits and your own provider keys
+- **[Bring Your Own Key (BYOK)](/guides/byok)** — connect your AI provider key and pay the provider directly
 - **[Chat Interface](/features/chat)** — full guide to sessions, tool permissions, and conversation management
 - **[Autonomous Agents](/features/agents)** — automate multi-step workflows on a schedule

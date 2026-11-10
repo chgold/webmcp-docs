@@ -35,13 +35,13 @@ All API errors include a `code` field that identifies the specific error type. U
 | `RATE_LIMITED` | 429 | Too many requests in the time window | Wait and retry; check the `Retry-After` header |
 | `OUTGOING_RATE_LIMITED` | 429 | Too many outgoing tool calls to a site (10/min per domain) | Wait 60 seconds before retrying |
 
-## Credit and Billing Errors
+## Billing and Usage Errors
 
 | Code | HTTP Status | Description | Resolution |
 |------|-------------|-------------|------------|
-| `NO_CREDITS` | 402 | Insufficient credit balance for the requested operation | Purchase credits or enable auto top-up on the Billing page |
-| `NO_PAYMENT_METHOD` | 402 | No payment method on file for a purchase | Add a card on the Billing page |
-| `PAYMENT_FAILED` | 402 | The payment charge was declined | Check your card details or use a different payment method |
+| `INSUFFICIENT_CREDITS` | 402 | AI usage was attempted without a connected AI provider key | Connect your own API key (BYOK) in **Settings** — see the [BYOK Guide](/guides/byok) |
+| `INSUFFICIENT_WORKSPACE_CREDITS` | 402 | A workspace agent ran without a workspace AI key configured | Add a workspace AI key in the workspace settings |
+| `PAYMENT_FAILED` | 402 | A subscription payment charge was declined | Check your card details or use a different payment method |
 | `SUBSCRIPTION_PAST_DUE` | 402 | Subscription payment is overdue | Update your payment method on the Billing page |
 
 ## Tier and Access Errors
@@ -132,3 +132,56 @@ When a `NO_TOOLS` error is returned, it includes a `reason` explaining why:
 | `PERMISSION_DENIED` | 403 | You do not have the required permission in this workspace | Contact the workspace admin for access |
 | `MEMBER_NOT_FOUND` | 404 | The user is not a member of this workspace | Invite them first |
 | `ROLE_CHANGE_FORBIDDEN` | 403 | Cannot change the owner's role | Ownership transfer is not supported via this endpoint |
+
+## Account Errors
+
+| Code | HTTP Status | Description | Resolution |
+|------|-------------|-------------|------------|
+| `SESSION_REVOKED` | 401 | This sign-in was ended — for example when your organization required SSO or removed you | Sign in again |
+| `SSO_REQUIRED` | 403 | Your organization requires signing in with its single sign-on | Use **Sign in with your organization (SSO)** — see [Domains & Single Sign-On](/organizations/sso) |
+| `ACCOUNT_DEACTIVATED` | 403 | Your organization disabled this account through its identity provider | Contact your organization's administrator |
+| `ACCOUNT_SUSPENDED` | 403 | The account is temporarily suspended | Wait until the suspension ends, or contact support |
+| `ACCOUNT_BANNED` | 403 | The account is banned | Contact support |
+
+## Agent Ownership and AI Key Errors
+
+| Code | HTTP Status | Description | Resolution |
+|------|-------------|-------------|------------|
+| `KEY_SOURCE_INVALID` | 400 | The agent's AI key cannot run the chosen model (wrong provider, missing key, model not covered by credits) | Choose a matching key or another model — the agent dialog shows the reason |
+| `KEY_CHANGE_AFFECTS_AGENTS` | 409 | Replacing or deleting a workspace AI key would stop agents that use it | Choose what happens to those agents, then save again |
+| `AGENT_EXPAND_CREATOR_ONLY` | 403 | Only the agent's creator can add sites, turn tools back on, grant writes or add a webhook | Ask the creator, or have an admin transfer the agent to you |
+| `AGENT_TRANSFER_FORBIDDEN` | 403 | Only workspace admins can transfer an agent | Ask a workspace admin |
+| `TRANSFER_TARGET_NOT_MEMBER` | 400 | The new owner is not a member of the workspace | Invite them first |
+| `TRANSFER_MISSING_SITES` | 409 | The new owner is not connected to some of the agent's sites | Confirm the transfer anyway, or have them connect the sites first |
+
+## Security and Governance Errors
+
+| Code | HTTP Status | Description | Resolution |
+|------|-------------|-------------|------------|
+| `INSUFFICIENT_PERMISSIONS` | 403 | You lack the workspace permission this action needs (for example **Manage security**) | Ask the workspace owner for the permission |
+| `KEY_INVALID` / `KEY_REVOKED` / `KEY_EXPIRED` | 401 | The Org API key is not recognised, was revoked, or expired | Create or rotate a key — see [Org API](/organizations/org-api) |
+| `INSUFFICIENT_SCOPE` | 403 | The Org API key lacks the scope this endpoint needs | Create a key with the needed scope |
+| `SELF_REVOKE` | 400 | An Org API key tried to revoke itself through the API | Revoke it from the Security page |
+| `NO_SCOPES` | 400 | A key must have at least one scope | Choose a scope |
+| `INVALID_TOOL_PATTERN` | 400 | A tool policy pattern is not a tool name, a prefix ending in `*`, or `*` | Fix the pattern |
+| `DUPLICATE_POLICY` | 409 | The same tool policy already exists | No action needed |
+| `INVALID_DATADOG_SITE` | 400 | The Datadog site is not one of the supported sites | Choose your Datadog site from the list |
+| `FORBIDDEN_URL` | 400 | The URL points to a private or internal network address | Use a public address |
+| `HTTPS_REQUIRED` | 400 | The URL must use `https` | Use an `https` URL |
+
+## Domain and Personal-Transfer Errors
+
+| Code | HTTP Status | Description | Resolution |
+|------|-------------|-------------|------------|
+| `INVALID_DOMAIN` | 400 | The domain is not valid | Enter a bare domain such as `example.com` |
+| `PUBLIC_DOMAIN` | 400 | Public mail domains (gmail.com, outlook.com…) cannot be verified | Use your organization's own domain |
+| `DOMAIN_TAKEN` | 409 | Another workspace already verified this domain | Contact support if the domain is yours |
+| `TXT_NOT_FOUND` | 422 | The verification TXT record was not found | Add the record at the domain itself and wait a few minutes for DNS |
+| `DNS_LOOKUP_FAILED` | 502 | The domain's DNS could not be queried | Try again later |
+| `NOT_MANAGED` | 400 | The account is not managed by an organization | Personal-content transfer applies only to managed accounts |
+| `TRANSFER_DISABLED` | 403 | Your organization switched personal-content transfer off | Ask your organization's administrator |
+| `TARGET_NOT_FOUND` | 404 | No active account uses that email | Sign up with it first |
+| `SAME_ACCOUNT` | 400 | The target is the same account | Choose your other account |
+| `TARGET_MANAGED` | 400 | The target account belongs to the same organization | Choose a personal account |
+| `TRANSFER_PENDING` | 409 | A transfer is already waiting for approval | Cancel it first |
+| `NOT_PENDING` | 409 | The transfer is no longer waiting (accepted, declined, cancelled or expired) | No action needed |

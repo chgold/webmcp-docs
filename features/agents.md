@@ -19,7 +19,8 @@ An agent consists of:
 - **Max rounds** — the maximum number of AI-tool interaction loops (default: 5)
 - **Write permissions** — which write tools the agent is allowed to run (none by default)
 - **Trigger type** — how the agent is started (manual, scheduled, or webhook)
-- **API key** — which AI key to use (platform credits or a specific BYOK key)
+- **Who pays for the AI** — your own key or connection, goldnat credits, or (in a workspace) a workspace AI key
+- **Show in dashboard** — whether the agent's findings appear in your morning brief
 
 ## Creating an Agent
 
@@ -117,7 +118,20 @@ Active runs show a real-time view. Steps appear as they execute, and you can wat
 
 ### Cancelling a Run
 
-Click **Cancel Run** on an active run to stop it. The agent finishes the current step and halts. Credits consumed up to that point are still deducted.
+Click **Cancel Run** on an active run to stop it. The agent finishes the current step and halts. Tokens already used before the stop are still billed.
+
+### Paused and Resumed Runs
+
+A run pauses when its AI cannot be paid for — for example when credits run out mid-run. It keeps everything done so far and **resumes from where it stopped** once credits are added or the key is fixed. A paused run that is not resumed within 72 hours is cancelled.
+
+Runs are also crash-safe: if a worker stops in the middle of a run, the run continues from its last saved step instead of starting over.
+
+### Limits That Keep Runs Healthy
+
+- **One run at a time per agent.** A trigger that arrives while the agent is already running waits its turn instead of failing; queued duplicates of a scheduled run are not created.
+- **Webhook rate limit.** A webhook that fires too often, or builds up a backlog, gets `429` until the queue drains.
+- **Time limits.** Each model call and each run as a whole have a maximum duration. A run that hits it fails with a clear reason; runs stuck for 45 minutes or more are stopped.
+- **A reply cut off mid-tool-call** is retried; if it keeps being cut off, the run fails with `output_limit` rather than reporting success.
 
 ## Agent Run Statuses
 
@@ -128,11 +142,11 @@ Click **Cancel Run** on an active run to stop it. The agent finishes the current
 | **Done** | Completed successfully |
 | **Failed** | Encountered an error |
 | **Cancelled** | Stopped by the user |
-| **Billing Failed** | Insufficient credits to complete the run — add credits on the Billing page |
+| **Billing Failed** | The run could not be paid for — check that your AI provider key is connected and valid in **Settings** |
 
-## Credit Usage
+## Token Usage
 
-Each round of an agent run consumes credits based on the model and token count, just like chat messages. The total credit cost is shown on the run detail page.
+Each round of an agent run is an AI call billed to your own provider account, just like a chat message. The run detail page shows the tokens the run consumed.
 
 To control costs:
 - Set a conservative `maxRounds` value
@@ -146,11 +160,15 @@ By default, an agent is **read-only**: it can look things up but cannot create, 
 To let an agent make changes:
 
 1. In the agent builder, open the **Write permissions** section.
-2. Click **Load tools** to fetch the tools available on the agent's sites.
-3. Select the specific write tools the agent is allowed to run.
+2. The agent's write tools are listed **by site**, each with its own switch.
+3. Either switch on the specific tools the agent may run, or choose **All write tools** to let it run every write tool on its sites.
 4. Save the agent.
 
-Only the tools you select are permitted. Every other write tool stays blocked, even if the agent's task seems to call for it. Leaving the list empty keeps the agent read-only.
+**Recommend tools** analyses the agent's prompt and goals and ticks the write tools the task needs. Review the choice before saving.
+
+With specific tools selected, only those are permitted; every other write tool stays blocked. Leaving the list empty keeps the agent read-only. **All write tools** is convenient but broad — in a workspace, the Security page lists such agents as a high finding.
+
+Tools a higher layer blocks — a workspace [tool policy](/organizations/tool-policies), or a rule in the creator's site group — are shown as blocked and cannot be switched on here.
 
 ::: warning
 Write tools change content on your sites. Grant only the tools the agent's task actually needs — for example, allow "reply to thread" without allowing "delete thread."
@@ -170,6 +188,20 @@ Give agents access only to the sites, goals, and write tools they need. Combine 
 
 Set `maxRounds` to the minimum needed for the task. A content monitoring agent might need only 2-3 rounds, while a complex multi-site workflow might need 10+.
 
+## Showing Findings in the Dashboard
+
+With **Show in dashboard** on, the agent's findings — items to handle and drafts to approve — appear in your [morning brief](/features/dashboard). The agent can also **propose actions** there, with the write tools you exposed to it: they appear as buttons on the brief item, and nothing is ever performed automatically — every action stays a draft until you click and approve it. With it off, the agent cannot write to the dashboard.
+
+The more write tools you expose (for example lock, move or tag a thread), the more one-click actions the agent can offer.
+
+## Writing on Your Sites
+
+When an agent writes content — a reply, a post, a page — it writes in the site's own markup (BBCode on a forum that uses it, HTML or blocks on a CMS), so posts look right on the site.
+
+## Deleting an Agent
+
+Deleting an agent stops it for good: it never runs again and its queued runs are cancelled. Its **run history is kept**. Tick **Also delete all of its runs** to remove the history too — this cannot be undone.
+
 ## Workspace Agents
 
-In a Team workspace, agents can be shared among workspace members. Workspace agents use the workspace's shared vault tokens and can be triggered by any member with the appropriate permissions. See [Team Workspaces](/features/workspaces) for details.
+In a Team workspace, agents can be shared among workspace members. Workspace agents use the workspace's shared vault tokens and can be triggered by any member with the appropriate permissions. Admins can edit and transfer them, and each agent states who pays for its AI. See [Team Workspaces](/features/workspaces#workspace-agents).

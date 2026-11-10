@@ -141,7 +141,7 @@ The agent will now run automatically and produce reports at the scheduled interv
 ## Step 6: Monitor and Iterate
 
 - Check **Agents > Support Response Drafter > Runs** periodically to review drafts.
-- Monitor credit consumption in **Analytics**.
+- Monitor token usage in **Analytics**.
 - Adjust the system prompt based on the quality of drafts:
   - If drafts are too generic, add more context about your product
   - If the agent is reading too many threads, reduce the limit in the prompt
@@ -149,13 +149,10 @@ The agent will now run automatically and produce reports at the scheduled interv
 
 ## Cost Estimate
 
-With Claude Sonnet 4.6 and 5 max rounds:
-- Per run: approximately 10-20 credits (depends on thread count and length)
-- Hourly schedule: ~240-480 credits/day
-- Daily schedule: ~10-20 credits/day
+With Claude Sonnet 4.6 and 5 max rounds, token usage per run scales with thread count and length. Under BYOK your provider bills you directly at Sonnet's rates — see the per-model rates in the [BYOK Guide](/guides/byok). An hourly schedule costs roughly 24x a daily one.
 
 ::: tip
-For cost savings, switch to Claude Haiku 4.5 for monitoring and only use Claude Sonnet 4.6 for response drafting. Or use BYOK to bypass credit costs entirely.
+For lower cost, switch to Claude Haiku 4.5 for monitoring and only use Claude Sonnet 4.6 for response drafting.
 :::
 
 ## Next Steps

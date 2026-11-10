@@ -18,6 +18,28 @@ The brief is built from **sections**. Each section shows a number or a list gath
 
 If nothing needs your attention, the brief simply tells you all is quiet.
 
+The brief is written in the language you use Goldnat in, and every number in it is taken from a real listing on your site rather than from a summary statistic, so counts are not stale.
+
+## How the Dashboard Looks
+
+- **Cubes** across the top show each section's count and its most urgent item: **Needs you**, **In queue** or **All clear**.
+- **Panels** below show the first three items of each section, one line per item. Click an item for its details.
+- **Show all** opens the section's own page with every item.
+
+For each section you choose **Where to show**: **Top only** (a cube), **List only** (a panel), or **Both**.
+
+## Drafts and Actions
+
+Agents with **Show in dashboard** on add their findings here. Drafts are written overnight, and **nothing is sent until you approve it**:
+
+- **Approve** publishes one draft; **Approve all & publish** publishes them all. You can edit a draft's text before approving.
+- Items can carry **action buttons** the agent proposed — for example lock, move or tag a thread. Click one to run it; actions that cannot be undone ask for confirmation first. If an action needs you to sign in to the site again, you are asked to.
+- Settings → **Brief actions** decides whether proposed actions are created when you click them, or upfront during the morning sweep.
+
+## Action Log
+
+The **Action log** lists every action you approved — who approved it, when it ran, what was actually sent, and what the site returned. If you edited a draft before approving, the agent's original draft is shown too. Filter by status (**Succeeded**, **Failed**), site, title and date.
+
 ## Customizing the Brief
 
 Click **Customize** on the dashboard to choose which sections appear, in what order, and when. Each section has three controls:

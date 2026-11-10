@@ -1,6 +1,6 @@
 ---
 title: Troubleshooting
-description: Solutions for common Goldnat issues — connection problems, credit errors, agent failures, and more.
+description: Solutions for common Goldnat issues — connection problems, AI provider key errors, agent failures, and more.
 ---
 
 # Troubleshooting
@@ -49,30 +49,29 @@ This page covers the most common issues users encounter and how to resolve them.
 3. Clear your browser cookies for goldnat.ai.
 4. The site's OAuth configuration may be incorrect — contact the site administrator.
 
-## Credit Issues
+## AI Provider Key Issues
 
-### "No Credits" error when sending a message
+### AI calls fail when sending a message
 
-**Cause:** Your credit balance is zero.
+**Cause:** No AI provider key is connected, or the connected key was rejected.
 
 **Solutions:**
-1. Go to **Billing** > **Buy Credits** and purchase a package.
-2. Enable **Auto Top-up** to prevent future occurrences.
-3. If you have a BYOK key, ensure it is active in **Settings** > **API Key**.
+1. Go to **Settings** > **API Key** and connect a key for the provider whose model you selected.
+2. If a key is already saved, confirm it's still valid in your provider's dashboard — revoked or expired keys fail here.
+3. Check that the model you picked belongs to the provider you connected. A model from another provider needs that provider's key.
 
-### Credits not showing after purchase
+### "Invalid API key" or authentication error from the provider
 
-1. Refresh the page (Ctrl+R / Cmd+R).
-2. Check **Billing** > **Transaction History** — the purchase should appear with status "Completed."
-3. If the transaction shows "Pending," wait a few minutes for Stripe to process.
-4. If the transaction is not listed, the payment may have failed. Check your card statement.
+1. Regenerate the key in the provider's dashboard.
+2. In Goldnat, go to **Settings** > **API Key**, click **Remove Key**, then save the new one.
+3. Watch for stray whitespace when pasting.
 
-### Credit balance seems to decrease too fast
+### Provider bill is higher than expected
 
-1. Check **Analytics** to see per-model credit usage.
-2. Review active scheduled agents — they consume credits on each run.
+1. Check **Analytics** for per-model token usage.
+2. Review active scheduled agents — each run is a fresh set of AI calls billed by your provider.
 3. Long conversations cost more per message because previous messages are included as input tokens.
-4. Switch to a cheaper model for simple tasks (Claude Haiku 4.5).
+4. Switch to a cheaper model for simple tasks (Claude Haiku 4.5). See [Cost Optimization](/guides/cost-optimization).
 
 ## Agent Issues
 
@@ -93,7 +92,7 @@ This page covers the most common issues users encounter and how to resolve them.
    - **Site unreachable** — the external site returned an error or timed out. Check the site's status.
    - **Token expired** — update the token in the vault.
    - **Model error** — the AI provider returned an error. Try a different model.
-   - **No credits** — the run was blocked due to insufficient balance.
+   - **Provider key problem** — no key connected, or the provider rejected it. Check **Settings** > **API Key**.
 
 ### Agent produces unexpected results
 
@@ -137,7 +136,7 @@ The chat session has expired. Click **New Session** to create a fresh one. Your 
 
 ### "No payment method" error
 
-Add a card on the **Billing** page before purchasing credits or enabling auto top-up.
+Add a card on the **Billing** page before subscribing to a paid plan.
 
 ### Payment declined
 

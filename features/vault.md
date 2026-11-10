@@ -91,7 +91,7 @@ When adding a site, you can optionally specify your username on that site. If le
 
 | Plan | Max Sites in Vault |
 |------|-------------------|
-| Free | 3 |
+| Free | 2 |
 | Pro | 10 |
-| Harness | 25 |
+| Harness | 100 |
 | Team | Unlimited |

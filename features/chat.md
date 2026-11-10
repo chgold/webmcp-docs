@@ -11,11 +11,19 @@ The Chat is the primary way to interact with AI models on Goldnat. You create a 
 
 1. Navigate to **Chat** in the sidebar.
 2. Click **New Session**.
-3. **Select a model** — choose from available models (e.g., Claude Haiku 4.5, Sonnet 4.6, Opus 5). The credit cost is displayed next to each model.
+3. **Select a model** — choose from available models. Models you cannot use right now — no key for that provider, and goldnat credits do not cover it — are marked. See [How AI Usage Is Paid](/getting-started/understanding-credits).
 4. **Select sites** — check individual sites from your vault, or select a site group. You can also start a chat without any sites for a pure AI conversation.
 5. Click **Start Chat**.
 
 The session persists until you create a new one. You can switch between the current session and previous conversations at any time.
+
+**Skip the selector:** tick **Don't show automatically for new chats** in the site selector. New chats then open at once with the sites you chose last time and your default model. If something is missing, the selector opens as usual.
+
+**Example questions:** an empty chat shows up to four example questions suited to the sites in the session. Click one to send it.
+
+### Chats Working at the Same Time
+
+Your plan sets how many chats can work at the same time. A chat counts as active if a message was sent in it in the last few minutes; a chat you opened and left does not count. If you reach the limit, the message is not sent and a dialog explains how many are active — wait a few minutes, or upgrade.
 
 ::: tip
 You can chat without any sites selected. This gives you a standard AI conversation with no tool-calling capability — useful for brainstorming, writing, or general questions.
@@ -30,7 +38,36 @@ While the AI is responding:
 - A streaming indicator appears
 - You can scroll up to read previous messages
 
-Each message shows the model used and the number of credits consumed.
+Each message shows the model used and its token counts.
+
+### When Something Goes Wrong Mid-Reply
+
+- If a reply stops on an error after part of it was written, **the written part is kept**, with the error below it — also after a refresh.
+- If the AI provider is busy (rate-limited), Goldnat waits and retries the current step by itself. Steps already done are never repeated, so no tool runs twice.
+- If credits run out between steps, the chat pauses and offers to continue once you add a key or credits.
+
+### Retry and Feedback
+
+- **Retry** on the last answer replaces it with a new answer to the same question.
+- 👍 / 👎 rate an answer; 👎 asks an optional "what was wrong?". Click again to remove your rating.
+
+## Picking a Tool with `/`
+
+Type `/` at the start of the message box to open the tool picker, step by step: **source → group → tool**.
+
+- **Sources:** each site in the session (grouped into *Read and search*, *Create and edit*, *Manage*), **My files**, platform tools, and your saved capabilities. Typing after `/` searches all levels at once.
+- Each tool shows its description and parameters in your interface language; tools that change something on the site are tagged.
+- The chosen tool appears as a tag above the message box. Write your request; the AI uses that tool and asks if a required detail is missing.
+
+Picking a tool does not run it and does not bypass anything: tools you turned off, tool policies and write approval still apply.
+
+### My Files
+
+`/` → **My files** opens a file browser: folders, search, and multi-select across folders. Then choose an action — **Summarize**, **Ask about the file**, **Deep analysis**, **Extract tables** (to an Excel file), **Compare** (two or more files) or **Translate**. A ready-made request appears in the message box for you to edit before sending. Attached files show by name on the message.
+
+## Tasks Split Across Helpers
+
+For a large request, the AI can split the work into several tasks that run in parallel. A **task card** under the conversation shows each task, its status, the tools it used and how long it took; click a task to see what that part found before the AI combined the results. The card stays on the answer after a refresh.
 
 ## Tool Calls
 
@@ -77,7 +114,7 @@ You can attach files to any message by dragging and dropping them onto the chat 
 
 **Supported formats:** text files, source code, images, PDFs, Excel spreadsheets, audio files, and archives (zip, tar).
 
-File size and count limits depend on your plan. Files are stored in your account and accessible from the **Files** page in the sidebar.
+Storage space depends on your plan; if an upload does not fit, the message says how much space is left. Files are stored in your account and accessible from the **Files** page in the sidebar. Attaching files to a chat works even when public file sharing is turned off.
 
 ### AI File Tools
 
@@ -153,18 +190,18 @@ The deny list takes precedence over the allow list when both match a tool.
 | `Shift + Enter` | New line in message |
 | `Escape` | Cancel streaming response |
 
-## Credit Usage in Chat
+## Token Usage in Chat
 
-Credits are deducted after each AI response completes. The cost depends on:
+Each response is paid by your own key or connection, or by goldnat credits — see [How AI Usage Is Paid](/getting-started/understanding-credits). Every message shows its token usage. What a response costs depends on:
 - The model selected
 - Input tokens (your message + conversation history + system prompt)
 - Output tokens (the AI's response)
 - Tool call overhead (additional tokens from tool results fed back to the AI)
 
-If your balance reaches zero mid-conversation, you will see a prompt to purchase credits before continuing.
+If your key is missing, revoked or expired and credits do not cover the model, the chat tells you what to connect. See the [BYOK Guide](/guides/byok).
 
 ## Tips
 
-- Keep conversations focused on a single topic — this reduces context length and credit costs.
+- Keep conversations focused on a single topic — this reduces context length and token cost.
 - Use the deny list to prevent the AI from calling destructive tools (e.g., delete operations).
 - For complex tasks across multiple sites, consider using an [Agent](/features/agents) instead.

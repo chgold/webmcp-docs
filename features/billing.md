@@ -1,116 +1,57 @@
 ---
 title: Billing & Payments
-description: Manage your Goldnat subscription, payment methods, credit purchases, auto top-up, and transaction history.
+description: Manage your Goldnat subscription plan — upgrading, downgrading, cancellation, and transaction history.
 ---
 
 # Billing & Payments
 
-The Billing page is your central hub for subscription management, credit purchases, and payment history. Access it from **Billing** in the sidebar.
+The Billing page is where you manage your subscription plan and review your payment history. Access it from **Billing** in the sidebar.
 
-## Current Plan and Balance
+A subscription plan unlocks platform **features** — agents, scheduling, webhooks, workspaces. It does not pay for AI usage: that runs on your own provider key, or on goldnat credits where they apply. See [How AI Usage Is Paid](/getting-started/understanding-credits).
 
-At the top of the Billing page, you see:
+## Current Plan
 
-- **Current Plan** — your active subscription tier (Free, Pro, Harness, or Team)
-- **Credits Balance** — your available credits
-- **Monthly Allocation** — how many credits your plan provides per billing cycle
-- **Next Renewal** — the date your subscription renews and credits reset
+At the top of the Billing page you see:
 
-## Buying Credits
-
-One-time credit packages supplement your monthly allocation:
-
-1. Go to **Billing** > **Buy Credits**.
-2. Choose a package:
-
-| Package | Credits | Price | Value |
-|---------|---------|-------|-------|
-| Starter | 250 | $5.00 | $0.020 / credit |
-| Standard | 600 | $10.00 | $0.017 / credit |
-| Pro | 1,300 | $20.00 | $0.015 / credit |
-| Bulk | 3,500 | $50.00 | $0.014 / credit |
-
-3. Click **Buy**. A Paddle checkout overlay opens — enter your payment details there.
-4. Once payment completes, credits are added to your account instantly.
-
-Purchased credits **never expire**, unlike monthly allocation credits.
-
-## Auto Top-Up
-
-Avoid running out of credits with automatic purchasing:
-
-1. Go to **Billing** > **Auto Top-up**.
-2. Enable the toggle.
-3. Configure:
-   - **Threshold** — buy credits when balance drops below this number (e.g., 100)
-   - **Amount** — how many credits to purchase each time (e.g., 500)
-   - **Monthly Limit** — maximum credits to auto-purchase per month (optional; leave empty for no limit)
-4. Click **Save Settings**.
-
-Auto top-up requires an active paid subscription. When triggered, Paddle charges your subscription's payment method via a one-time charge — no separate card setup needed.
-
-::: tip
-A good starting configuration: threshold of 100 credits, purchase amount of 500 credits, monthly limit of 2,000 credits. Adjust based on your usage patterns shown in Analytics.
-:::
+- **Current Plan** — your active tier (Free, Pro, Harness or Team)
+- **Next renewal** — when the current period ends, once your subscription has one
+- **Plan features** — what your tier unlocks (see the [Tier Feature Matrix](/reference/tier-features))
 
 ## Upgrading Plans
 
-1. Scroll to **Choose a Plan** on the Billing page.
-2. Click **Upgrade** on the desired tier.
-3. A Paddle checkout overlay opens — enter your payment details there.
-4. Billing is prorated — you pay only for the remaining days in the current billing cycle.
-5. New features and credits are available immediately.
+1. Under **Choose a Plan**, click the plan you want. A plan button on the pricing page starts that same plan's checkout; if you were not signed in, it continues on the Billing page after you sign in.
+2. **Before upgrading from Free**, Goldnat explains that the subscription covers platform access only and that AI usage runs on your own key. Tick the acknowledgement — and connect a key first if you have none — then click **Continue to Payment**.
+3. A Paddle checkout opens — enter your payment details there.
+4. Billing is prorated: you pay only for the days left in the current period.
+5. New features are available immediately, and the page shows your new plan without a reload.
 
 ## Downgrading Plans
 
 1. Click **Downgrade** on a lower tier.
 2. Review the changes:
    - The downgrade takes effect at the end of the current billing period.
-   - Features above the new tier's limits will become inaccessible.
-   - Remaining credits are preserved.
+   - Features above the new tier's limits become inaccessible.
 3. Confirm.
 
 ## Cancellation
 
-1. Click **Cancel Subscription**.
+1. Click **Cancel subscription**.
 2. Review the consequences:
    - Downgraded to Free at period end
-   - Agents, scheduling, webhooks disabled
-   - Monthly credits stop renewing
+   - Agents, scheduling and webhooks disabled
    - Workspace access suspended
-3. Confirm cancellation.
+3. Confirm. The plan shows **Cancels at period end**.
 
-You can **Reactivate** at any time before the period ends to restore your subscription.
+You can **Reactivate** at any time before the period ends.
+
+## Managing Payment Details
+
+**Manage Subscription** opens Paddle's customer portal, where you update your card, download invoices and see past payments. If the portal cannot be opened, the page says why instead of a generic error.
 
 ## Transaction History
 
-The **Billing History** section shows all past transactions:
+The **Billing History** section shows past purchases — date, description and status. Click **View receipt** for a receipt.
 
-| Column | Description |
-|--------|-------------|
-| **Date** | When the transaction occurred |
-| **Description** | What was purchased (credits, plan change, etc.) |
-| **Credits** | Number of credits involved |
-| **Status** | Completed or Refunded |
+## Plugins and Bundles
 
-Click **View Receipt** to see the receipt for a transaction.
-
-## Credit Breakdown
-
-Credits come from two sources:
-
-- **Monthly allocation** — granted at the start of each billing cycle, expire at renewal
-- **Purchased credits** — bought as one-time packages, never expire
-
-The Billing page shows each source with its balance and expiry date. Monthly credits are consumed first.
-
-## Refunds
-
-If you purchased credits by mistake:
-1. Find the transaction in Billing History.
-2. Click **Refund**.
-3. Confirm. The credits are deducted from your balance and the charge is reversed.
-
-::: warning
-Refunds deduct credits from your current balance. If you have already spent the credits, the refund will reduce your balance below zero — future credits will first replenish the negative balance.
-:::
+Plugins for your sites (WordPress, XenForo, Drupal and others) and bundles of plugins are bought from their own purchase page. A bundle checkout covers all its plugins, and the licenses are issued together and shown as one bundle.

@@ -123,7 +123,7 @@ curl -X POST "https://goldnat.ai/api/webhooks/agent/YOUR_AGENT_ID" \
 2. Verify the run:
    - Status: Done
    - Steps: read the post, translate, post the reply
-   - Credit usage: typically 1-3 credits with Claude Haiku 4.5
+   - Token usage: low with Claude Haiku 4.5
 
 ### Verify on the Forum
 
@@ -140,9 +140,7 @@ Update the system prompt to handle:
 
 ## Cost Estimate
 
-Using Claude Haiku 4.5 with 3 max rounds:
-- Per translation: approximately 0.5-1.5 credits
-- At 50 new posts per day: ~25-75 credits/day (~750-2,250 credits/month)
+Using Claude Haiku 4.5 with 3 max rounds, each translation uses a small number of tokens. Under BYOK you pay your provider directly at Haiku's rates — see the per-model rates in the [BYOK Guide](/guides/byok). Cost scales with the number of posts translated per day.
 
 ::: tip
 Claude Haiku 4.5 provides excellent translation quality at very low cost. Switching to a more expensive model is unnecessary for most translation tasks.

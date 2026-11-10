@@ -91,7 +91,7 @@ Check that:
 - The agent successfully calls the search/list tools
 - The digest contains accurate data
 - The format matches your expectations
-- Credit usage is reasonable (should be 2-5 credits with Claude Haiku 4.5)
+- Token usage is reasonable (keep to Claude Haiku 4.5 for the cheapest runs)
 
 ## Step 3: Review the Output
 
@@ -155,10 +155,7 @@ If you want to receive the digest via an external system (Slack, email, etc.), y
 
 ## Cost Estimate
 
-Using Claude Haiku with 4 max rounds:
-- Per run: approximately 2-5 credits
-- Daily schedule: 2-5 credits/day
-- Monthly: 60-150 credits/month
+Using Claude Haiku with 4 max rounds keeps token usage per run low. Under BYOK you pay your provider directly at Haiku's rates — see the per-model rates in the [BYOK Guide](/guides/byok).
 
 This is one of the most cost-effective agent patterns.
 

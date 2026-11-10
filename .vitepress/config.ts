@@ -69,6 +69,7 @@ export default defineConfig({
           { text: 'Cost Optimization', link: '/guides/cost-optimization' },
         ],
       },
+      { text: 'Organizations', link: '/organizations/' },
       { text: 'Tutorials', link: '/tutorials/customer-support-bot' },
       { text: 'Reference', link: '/reference/tier-features' },
     ],
@@ -80,7 +81,7 @@ export default defineConfig({
           items: [
             { text: 'Quickstart', link: '/getting-started/quickstart' },
             { text: 'Connecting Sites', link: '/getting-started/connecting-sites' },
-            { text: 'Understanding Credits', link: '/getting-started/understanding-credits' },
+            { text: 'How AI Usage Is Paid', link: '/getting-started/understanding-credits' },
           ],
         },
       ],
@@ -115,6 +116,26 @@ export default defineConfig({
             { text: 'Bring Your Own Key', link: '/guides/byok' },
             { text: 'Webhook Triggers', link: '/guides/webhooks' },
             { text: 'Cost Optimization', link: '/guides/cost-optimization' },
+          ],
+        },
+      ],
+
+      '/organizations/': [
+        {
+          text: 'Security & Governance',
+          items: [
+            { text: 'Overview', link: '/organizations/' },
+            { text: 'Tool Policies', link: '/organizations/tool-policies' },
+            { text: 'Audit Log & Streaming', link: '/organizations/audit-log' },
+            { text: 'Org API', link: '/organizations/org-api' },
+          ],
+        },
+        {
+          text: 'Identity',
+          items: [
+            { text: 'Domains & Single Sign-On', link: '/organizations/sso' },
+            { text: 'SCIM Provisioning', link: '/organizations/scim' },
+            { text: 'Organization-Managed Accounts', link: '/organizations/managed-accounts' },
           ],
         },
       ],

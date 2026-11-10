@@ -14,15 +14,21 @@ This page provides a comprehensive comparison of all features across Goldnat sub
 | **Price** | $0 | $19/mo | $49/mo | $79/mo |
 | **Target User** | Evaluation | Individual | Power user | Teams |
 
-## Credits
+## Paying for AI Usage
+
+AI usage runs on your own provider key or subscription (Anthropic, OpenAI,
+Google or OpenRouter), connected in **Settings**, at the provider's own rates.
+New accounts also receive a sign-up gift of goldnat credits, and some plans
+include monthly credits, for the models credits cover. See
+[How AI Usage Is Paid](/getting-started/understanding-credits).
 
 | Feature | Free | Pro | Harness | Team |
 |---------|------|-----|---------|------|
-| Welcome credits (one-time) | 1,850 | -- | -- | -- |
-| Monthly credits | -- | 50,000 | 130,000 | 310,000 |
-| Credit rollover | -- | No | No | No |
-| Purchase additional credits | Yes | Yes | Yes | Yes |
-| Auto top-up | No | Yes | Yes | Yes |
+| Personal BYOK key | Yes | Yes | Yes | Yes |
+| Workspace AI keys | No | No | No | Yes |
+
+The paid tiers below unlock **features** (agents, scheduling, workspaces, and so
+on); they are not a source of AI usage allowance.
 
 ## Sites and Connections
 
@@ -89,7 +95,6 @@ This page provides a comprehensive comparison of all features across Goldnat sub
 |---------|------|-----|---------|------|
 | Usage analytics | Basic | Full | Full | Full |
 | Tool execution traces | No | Yes | Yes | Yes |
-| Credit breakdown | Yes | Yes | Yes | Yes |
 | Per-model usage stats | No | Yes | Yes | Yes |
 
 ## Webhooks
@@ -110,14 +115,30 @@ This page provides a comprehensive comparison of all features across Goldnat sub
 | Domain validation | Yes | Yes | Yes | Yes |
 | Prompt injection scanning | Yes | Yes | Yes | Yes |
 | Rate limiting | Yes | Yes | Yes | Yes |
+| MCP keys with rotation | Yes | Yes | Yes | Yes |
+| Leaked-key auto-revocation (GitHub secret scanning) | Yes | Yes | Yes | Yes |
+
+## Security & Governance (workspaces)
+
+See [Security & Governance](/organizations/).
+
+| Feature | Free | Pro | Harness | Team |
+|---------|------|-----|---------|------|
+| Security page: inventory and findings | No | No | No | Yes |
+| Workspace tool policies | No | No | No | Yes |
+| Audit log | No | No | No | Yes |
+| Audit streaming (webhook, Splunk, Datadog) | No | No | No | Yes |
+| Org API | No | No | No | Yes |
+| Verified domains | No | No | No | Yes |
+| Single sign-on (OIDC, SAML) and Require SSO | No | No | No | Yes |
+| SCIM provisioning | No | No | No | Yes |
 
 ## Enterprise
 
 For organizations needing:
-- Custom credit allocations
 - Dedicated infrastructure
 - SLA guarantees
-- SSO / SAML integration
+- Longer audit-log retention
 - Priority support
 - On-premise deployment
 

@@ -197,5 +197,5 @@ Create a scheduled agent that runs hourly to keep content synchronized between s
 
 - Start simple — get a two-site workflow working before adding more sites.
 - Test thoroughly — multi-site agents can have unexpected interactions.
-- Monitor credit usage — more sites means more tool calls per round.
+- Monitor token usage — more sites means more tool calls per round.
 - Use Claude Haiku 4.5 for read-heavy workflows and Claude Sonnet 4.6 for complex reasoning tasks.
