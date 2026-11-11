@@ -261,9 +261,9 @@ clock. Interpolate the resolved period into your `args` instead:
 
 | Placeholder | Value |
 |---|---|
-| `{{periodStart}}` | The calendar date being collected, `YYYY-MM-DD` |
-| `{{periodEnd}}` | Same date for daily metrics; the period's last date otherwise |
-| `{{timezone}}` | The user's IANA zone, e.g. `Pacific/Auckland` |
+| <code v-pre>{{periodStart}}</code> | The calendar date being collected, `YYYY-MM-DD` |
+| <code v-pre>{{periodEnd}}</code> | Same date for daily metrics; the period's last date otherwise |
+| <code v-pre>{{timezone}}</code> | The user's IANA zone, e.g. `Pacific/Auckland` |
 
 Placeholders work anywhere inside `args`, including nested objects and arrays.
 Your tool should return figures for exactly that date, interpreted in that zone.
@@ -336,7 +336,7 @@ Drafts remain something an AI agent composes.
 |---|---|---|
 | `type` | yes | `waiting`, `decision` or `activity` |
 | `tool` | yes | Tool name as it appears in your manifest |
-| `args` | no | Fixed arguments; supports the same `{{…}}` placeholders |
+| `args` | no | Fixed arguments; supports the same <code v-pre>{{…}}</code> placeholders |
 | `itemsPath` | yes | Dot path to the **array** in the response |
 | `limit` | no | Max rows to take, default 20, hard cap 50 |
 | `fields.title` | yes | Path within each row to the line the user reads |

@@ -94,6 +94,26 @@ Turn on **Require SSO** (it needs at least one verified domain). Then:
 - Everyone on those domains who is signed in another way is **signed out at once** and must sign in again with SSO.
 - The **workspace owner** is exempt and can still sign in with Google — your way back in if the IdP is down. The admin who switches it on also stays signed in.
 
+## Access to sites through your identity provider (Cross App Access)
+
+With **OpenID Connect** SSO, goldnat can connect your members to your organization's sites without each of them connecting every site. goldnat asks your identity provider for access to the site on the member's behalf (an *Identity Assertion JWT Authorization Grant*, ID-JAG), and the site exchanges it for an access token. Your identity provider decides every time: when it stops granting access — the person left, or was unassigned from the site — the connection is removed.
+
+Requirements:
+
+- SSO with **OIDC** (not SAML), switched on.
+- The site runs an **AI Connect plugin that accepts identity-provider grants**, with goldnat registered as a client in the plugin's settings.
+- An identity provider that supports Cross App Access, such as Okta.
+
+To set it up:
+
+1. In **Security → Identity**, turn on **Request site access from the identity provider**.
+2. Under **Add a site**, enter the site address, and the client ID and secret that the site's plugin gave goldnat. goldnat checks that the site accepts identity-provider grants.
+3. Copy the site's **authorization server** shown in the list, and add it to your identity provider (in Okta: the resource app's *Cross-app access* setting), assigning the people or groups who may use it.
+
+Each member is connected at their next SSO sign-in, and goldnat renews the access by itself. A connection a member made themselves always takes precedence, and is never replaced. Turning a site off, removing it, or turning the feature off removes the connections made through the identity provider at once.
+
+Every connection, refusal and change is recorded in the [audit log](/organizations/audit-log) (`connection.xaa_connect`, `connection.revoke`, `xaa.*`).
+
 ## When sign-in fails
 
 The sign-in page explains what went wrong:

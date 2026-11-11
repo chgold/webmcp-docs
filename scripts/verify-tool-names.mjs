@@ -6,8 +6,11 @@ import { fileURLToPath } from 'node:url';
 // the authoritative source. Docs written by hand drift from it — names get invented,
 // namespaces get missed. This fails the build when a documented tool does not exist.
 //
-// A tool reference is any single-backticked `namespace.toolName`. Names that are not
-// tools (manifest fields, example domains) are listed in NON_TOOL_REFS.
+// A tool reference is a single-backticked `namespace.toolName` whose namespace is a
+// real tool namespace (derived from the live tool list). Other dotted names — audit
+// actions (`sso.login`), domains, manifest fields (`fields.title`) — are not tools and
+// are not checked. A misspelled tool in a real namespace (`xenforo.getThred`) still
+// fails. Remaining exceptions inside real namespaces go in NON_TOOL_REFS.
 //
 // Network failure is a skip, not a failure: the docs deploy must not depend on the
 // availability of a separate site. Only a genuine mismatch fails.
@@ -53,6 +56,7 @@ const known = await fetchKnownToolNames().catch(err => {
 if (known) {
   const problems = [];
   let checked = 0;
+  const namespaces = new Set([...known.names].map(n => n.split('.')[0]));
 
   for (const file of markdownFiles(ROOT)) {
     const text = readFileSync(file, 'utf8');
@@ -61,6 +65,7 @@ if (known) {
       for (const m of line.matchAll(TOOL_REF)) {
         const name = m[1];
         if (NON_TOOL_REFS.has(name)) continue;
+        if (!namespaces.has(name.split('.')[0])) continue;
         checked++;
         if (!known.names.has(name)) {
           problems.push(`${relative(ROOT, file)}:${i + 1}  ${name}`);

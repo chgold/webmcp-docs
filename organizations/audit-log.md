@@ -52,6 +52,7 @@ Your security tools can read the same events through the [Org API](/organization
 | Members | `member.add`, `member.role_change` |
 | Policies & streaming | `tool_policy.create`, `tool_policy.delete`, `audit_sink.create`, `audit_sink.delete`, `audit_sink.test` |
 | Identity | `domain.add`, `domain.verify`, `domain.remove`, `sso.configure`, `sso.update`, `sso.delete`, `sso.login`, `scim_token.create`, `scim_token.revoke`, `scim.user.*`, `scim.group.*`, `scim.member.*`, `scim.default_role` |
+| Cross App Access | `xaa.update`, `xaa.resource.add`, `xaa.resource.update`, `xaa.resource.remove`, `connection.xaa_connect`, `connection.xaa_denied` |
 | Managed accounts | `account.personal_transfer.request`, `account.personal_transfer.decline`, `account.personal_transfer.complete`, `account.personal_transfer.policy` |
 
 New actions may be added over time. Treat unknown actions as informational rather than failing on them.
